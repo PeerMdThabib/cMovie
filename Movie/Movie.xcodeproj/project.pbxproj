@@ -23,7 +23,7 @@
 		5EECD99B21087BE7005B4497 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; };
 		5EECD99C21087BF2005B4497 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EECD99D21087BF2005B4497 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5EECD99F210889A3005B4497 /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD99E210889A3005B4497 /* MovieListController.swift */; };
+		5EECD99F210889A3005B4497 /* MovieSearchListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD99E210889A3005B4497 /* MovieSearchListController.swift */; };
 		5EECD9A02108A0BE005B4497 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; };
 		5EECD9A12108A0BE005B4497 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; };
 		5EECD9A22108A0BE005B4497 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; };
@@ -120,7 +120,7 @@
 		5EECD99621087399005B4497 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5EECD99821087BE7005B4497 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		5EECD99921087BE7005B4497 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		5EECD99E210889A3005B4497 /* MovieListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
+		5EECD99E210889A3005B4497 /* MovieSearchListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +161,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E742E972108BC1500A2D749 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EECD99E210889A3005B4497 /* MovieSearchListController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5E742E982108D0F100A2D749 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		5EECD94C21070CCB005B4497 = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +200,9 @@
 		5EECD95721070CCB005B4497 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				5E742E982108D0F100A2D749 /* Utilities */,
 				5EECD95821070CCB005B4497 /* AppDelegate.swift */,
-				5EECD99E210889A3005B4497 /* MovieListController.swift */,
+				5E742E972108BC1500A2D749 /* Controllers */,
 				5EECD95C21070CCB005B4497 /* Main.storyboard */,
 				5EECD96221070CCF005B4497 /* Assets.xcassets */,
 				5EECD96421070CCF005B4497 /* LaunchScreen.storyboard */,
@@ -417,7 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EECD99F210889A3005B4497 /* MovieListController.swift in Sources */,
+				5EECD99F210889A3005B4497 /* MovieSearchListController.swift in Sources */,
 				5EECD96121070CCB005B4497 /* Movie.xcdatamodeld in Sources */,
 				5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */,
 			);

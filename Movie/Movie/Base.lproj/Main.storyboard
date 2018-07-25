@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J7P-zn-KTq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="YE7-jA-AKh">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="J7P-zn-KTq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcq-dc-NUw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="u9a-9y-uVm" kind="relationship" relationship="rootViewController" id="l22-wr-Ufk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKe-8f-xPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1418" y="410"/>
+        </scene>
+        <!--C' MOVIE-->
+        <scene sceneID="2CX-dU-gEt">
+            <objects>
+                <viewController id="u9a-9y-uVm" customClass="MovieSearchListController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Dc-gv-HTh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Movie" translatesAutoresizingMaskIntoConstraints="NO" id="G2p-uJ-zlO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="xmf-XP-tXo"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="u9a-9y-uVm" id="xp9-Ix-C4p"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5K9-Bd-nuQ">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="qDo-od-ep4">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qDo-od-ep4" id="4no-Zc-z7I">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="u9a-9y-uVm" id="F81-3K-FFx"/>
+                                    <outlet property="delegate" destination="u9a-9y-uVm" id="5LA-J7-Y07"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5K9-Bd-nuQ" firstAttribute="centerX" secondItem="wY8-Pf-G9O" secondAttribute="centerX" id="2r0-2R-HT2"/>
+                            <constraint firstItem="G2p-uJ-zlO" firstAttribute="width" secondItem="6Dc-gv-HTh" secondAttribute="width" id="5a2-dT-gEo"/>
+                            <constraint firstItem="5K9-Bd-nuQ" firstAttribute="top" secondItem="G2p-uJ-zlO" secondAttribute="bottom" id="LTH-Hk-2rP"/>
+                            <constraint firstItem="wY8-Pf-G9O" firstAttribute="bottom" secondItem="5K9-Bd-nuQ" secondAttribute="bottom" id="SQ2-4f-0sC"/>
+                            <constraint firstItem="5K9-Bd-nuQ" firstAttribute="width" secondItem="6Dc-gv-HTh" secondAttribute="width" id="WUi-co-MWf"/>
+                            <constraint firstItem="G2p-uJ-zlO" firstAttribute="centerX" secondItem="wY8-Pf-G9O" secondAttribute="centerX" id="du9-CU-w8J"/>
+                            <constraint firstItem="G2p-uJ-zlO" firstAttribute="top" secondItem="wY8-Pf-G9O" secondAttribute="top" id="xfE-rh-9t3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wY8-Pf-G9O"/>
                     </view>
+                    <navigationItem key="navigationItem" title="C' MOVIE" id="HKO-hA-N3M"/>
+                    <connections>
+                        <outlet property="movieSearchBar" destination="G2p-uJ-zlO" id="cS8-WT-EIi"/>
+                        <outlet property="movieTableView" destination="5K9-Bd-nuQ" id="yzQ-WB-Myg"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDE-Hr-erq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-618.5" y="409.5"/>
         </scene>
     </scenes>
 </document>
