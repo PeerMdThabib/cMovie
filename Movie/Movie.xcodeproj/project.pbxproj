@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD95821070CCB005B4497 /* AppDelegate.swift */; };
-		5EECD95B21070CCB005B4497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD95A21070CCB005B4497 /* ViewController.swift */; };
 		5EECD95E21070CCB005B4497 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EECD95C21070CCB005B4497 /* Main.storyboard */; };
 		5EECD96121070CCB005B4497 /* Movie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD95F21070CCB005B4497 /* Movie.xcdatamodeld */; };
 		5EECD96321070CCF005B4497 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EECD96221070CCF005B4497 /* Assets.xcassets */; };
@@ -24,6 +23,23 @@
 		5EECD99B21087BE7005B4497 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; };
 		5EECD99C21087BF2005B4497 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EECD99D21087BF2005B4497 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD99F210889A3005B4497 /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD99E210889A3005B4497 /* MovieListController.swift */; };
+		5EECD9A02108A0BE005B4497 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; };
+		5EECD9A12108A0BE005B4497 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; };
+		5EECD9A22108A0BE005B4497 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; };
+		5EECD9A32108A0BE005B4497 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD993210872BF005B4497 /* SwiftyJSON.framework */; };
+		5EECD9A42108A0FC005B4497 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; };
+		5EECD9A52108A0FC005B4497 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; };
+		5EECD9A62108A0FC005B4497 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; };
+		5EECD9A72108A0FC005B4497 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD993210872BF005B4497 /* SwiftyJSON.framework */; };
+		5EECD9AA2108A18D005B4497 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9AB2108A18D005B4497 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9AC2108A18D005B4497 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD993210872BF005B4497 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9AD2108A18D005B4497 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9B02108A1D7005B4497 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99821087BE7005B4497 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9B12108A1D7005B4497 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9B22108A1D7005B4497 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD993210872BF005B4497 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EECD9B32108A1D7005B4497 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +73,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EECD9A92108A17D005B4497 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5EECD9AA2108A18D005B4497 /* Nimble.framework in CopyFiles */,
+				5EECD9AB2108A18D005B4497 /* Quick.framework in CopyFiles */,
+				5EECD9AC2108A18D005B4497 /* SwiftyJSON.framework in CopyFiles */,
+				5EECD9AD2108A18D005B4497 /* Alamofire.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EECD9AF2108A1CA005B4497 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5EECD9B02108A1D7005B4497 /* Nimble.framework in CopyFiles */,
+				5EECD9B12108A1D7005B4497 /* Quick.framework in CopyFiles */,
+				5EECD9B22108A1D7005B4497 /* SwiftyJSON.framework in CopyFiles */,
+				5EECD9B32108A1D7005B4497 /* Alamofire.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5EECD95521070CCB005B4497 /* Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EECD95821070CCB005B4497 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5EECD95A21070CCB005B4497 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5EECD95D21070CCB005B4497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EECD96021070CCB005B4497 /* Movie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movie.xcdatamodel; sourceTree = "<group>"; };
 		5EECD96221070CCF005B4497 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +120,7 @@
 		5EECD99621087399005B4497 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5EECD99821087BE7005B4497 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		5EECD99921087BE7005B4497 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		5EECD99E210889A3005B4497 /* MovieListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +140,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EECD9A02108A0BE005B4497 /* Alamofire.framework in Frameworks */,
+				5EECD9A12108A0BE005B4497 /* Nimble.framework in Frameworks */,
+				5EECD9A22108A0BE005B4497 /* Quick.framework in Frameworks */,
+				5EECD9A32108A0BE005B4497 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +151,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EECD9A42108A0FC005B4497 /* Alamofire.framework in Frameworks */,
+				5EECD9A52108A0FC005B4497 /* Nimble.framework in Frameworks */,
+				5EECD9A62108A0FC005B4497 /* Quick.framework in Frameworks */,
+				5EECD9A72108A0FC005B4497 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				5EECD95821070CCB005B4497 /* AppDelegate.swift */,
-				5EECD95A21070CCB005B4497 /* ViewController.swift */,
+				5EECD99E210889A3005B4497 /* MovieListController.swift */,
 				5EECD95C21070CCB005B4497 /* Main.storyboard */,
 				5EECD96221070CCF005B4497 /* Assets.xcassets */,
 				5EECD96421070CCF005B4497 /* LaunchScreen.storyboard */,
@@ -205,6 +255,8 @@
 				5EECD96821070CCF005B4497 /* Sources */,
 				5EECD96921070CCF005B4497 /* Frameworks */,
 				5EECD96A21070CCF005B4497 /* Resources */,
+				5EECD9A82108A13B005B4497 /* ShellScript */,
+				5EECD9A92108A17D005B4497 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -223,6 +275,8 @@
 				5EECD97321070CCF005B4497 /* Sources */,
 				5EECD97421070CCF005B4497 /* Frameworks */,
 				5EECD97521070CCF005B4497 /* Resources */,
+				5EECD9AE2108A195005B4497 /* ShellScript */,
+				5EECD9AF2108A1CA005B4497 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -322,6 +376,40 @@
 			shellPath = /bin/sh;
 			shellScript = "";
 		};
+		5EECD9A82108A13B005B4497 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		5EECD9AE2108A195005B4497 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,7 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EECD95B21070CCB005B4497 /* ViewController.swift in Sources */,
+				5EECD99F210889A3005B4497 /* MovieListController.swift in Sources */,
 				5EECD96121070CCB005B4497 /* Movie.xcdatamodeld in Sources */,
 				5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */,
 			);
@@ -551,6 +639,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8WE93TG3H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -572,6 +664,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8WE93TG3H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -592,6 +688,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8WE93TG3H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -612,6 +712,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8WE93TG3H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

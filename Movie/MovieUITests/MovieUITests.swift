@@ -6,9 +6,9 @@
 //  Copyright © 2018 Sasi. All rights reserved.
 //
 
-import XCTest
+import Quick
 
-class MovieUITests: XCTestCase {
+class MovieUITests: QuickSpec {
         
     override func setUp() {
         super.setUp()
