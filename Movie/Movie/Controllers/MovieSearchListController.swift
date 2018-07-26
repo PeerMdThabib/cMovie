@@ -13,23 +13,17 @@ class MovieSearchListController: UIViewController {
     @IBOutlet weak var movieSearchBar: UISearchBar!
     @IBOutlet weak var movieTableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    // MARK: - Movie data fetch
-    
 }
 
 extension MovieSearchListController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if (searchBar.text == nil || searchBar.text!.count == 0) {
+            return
+        }
         searchBar.endEditing(true)
+        MovieDataHandler.sharedInstance.downloadMovies(withTitle: searchBar.text!) {
+            self.movieTableView.reloadData()
+        }
     }
 }
 
@@ -41,12 +35,12 @@ extension MovieSearchListController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return MovieDataHandler.sharedInstance.getMoviesCount()
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         
         // Configure the cell...
         
