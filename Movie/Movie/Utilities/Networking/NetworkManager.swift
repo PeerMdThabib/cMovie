@@ -19,7 +19,6 @@ final class NetworkManager: NSObject {
         requestQueues = NSMutableSet.init()
     }
     
-    
     func sendMesage(message: Message) {
         
         enqueMessage(message: message)

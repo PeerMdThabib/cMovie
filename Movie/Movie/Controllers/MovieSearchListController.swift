@@ -40,10 +40,10 @@ extension MovieSearchListController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let movie: Movie? = MovieDataHandler.sharedInstance.getMovie(atIndex: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        
-        // Configure the cell...
-        
+        cell.textLabel?.text = movie?.title
         return cell
     }
 }

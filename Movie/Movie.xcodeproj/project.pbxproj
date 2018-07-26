@@ -50,6 +50,15 @@
 		5EECD9B12108A1D7005B4497 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD99921087BE7005B4497 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EECD9B22108A1D7005B4497 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD993210872BF005B4497 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EECD9B32108A1D7005B4497 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF00210A4E050010259F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEEFF210A4E050010259F /* Realm.framework */; };
+		5EEDEF02210A4E210010259F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF01210A4E200010259F /* RealmSwift.framework */; };
+		5EEDEF03210A4E470010259F /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF01210A4E200010259F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF04210A4E470010259F /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEEFF210A4E050010259F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF05210A4E610010259F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEEFF210A4E050010259F /* Realm.framework */; };
+		5EEDEF06210A4E610010259F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF01210A4E200010259F /* RealmSwift.framework */; };
+		5EEDEF07210A4E790010259F /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF01210A4E200010259F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF08210A4E790010259F /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEEFF210A4E050010259F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF0A210A53E60010259F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF09210A53E60010259F /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +85,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5EEDEF03210A4E470010259F /* RealmSwift.framework in CopyFiles */,
+				5EEDEF04210A4E470010259F /* Realm.framework in CopyFiles */,
 				5E742EA3210A3B4700A2D749 /* AlamofireImage.framework in CopyFiles */,
 				5EECD99C21087BF2005B4497 /* Nimble.framework in CopyFiles */,
 				5EECD99D21087BF2005B4497 /* Quick.framework in CopyFiles */,
@@ -90,6 +101,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5EEDEF07210A4E790010259F /* RealmSwift.framework in CopyFiles */,
+				5EEDEF08210A4E790010259F /* Realm.framework in CopyFiles */,
 				5E742EA4210A3B5700A2D749 /* AlamofireImage.framework in CopyFiles */,
 				5EECD9AA2108A18D005B4497 /* Nimble.framework in CopyFiles */,
 				5EECD9AB2108A18D005B4497 /* Quick.framework in CopyFiles */,
@@ -139,6 +152,9 @@
 		5EECD99821087BE7005B4497 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		5EECD99921087BE7005B4497 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		5EECD99E210889A3005B4497 /* MovieSearchListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchListController.swift; sourceTree = "<group>"; };
+		5EEDEEFF210A4E050010259F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		5EEDEF01210A4E200010259F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		5EEDEF09210A53E60010259F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEDEF02210A4E210010259F /* RealmSwift.framework in Frameworks */,
+				5EEDEF00210A4E050010259F /* Realm.framework in Frameworks */,
 				5E742EA2210A3B3D00A2D749 /* AlamofireImage.framework in Frameworks */,
 				5EECD99A21087BE7005B4497 /* Nimble.framework in Frameworks */,
 				5EECD99B21087BE7005B4497 /* Quick.framework in Frameworks */,
@@ -159,6 +177,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEDEF05210A4E610010259F /* Realm.framework in Frameworks */,
+				5EEDEF06210A4E610010259F /* RealmSwift.framework in Frameworks */,
 				5E742EA5210A3B7400A2D749 /* AlamofireImage.framework in Frameworks */,
 				5EECD9A02108A0BE005B4497 /* Alamofire.framework in Frameworks */,
 				5EECD9A12108A0BE005B4497 /* Nimble.framework in Frameworks */,
@@ -212,6 +232,7 @@
 		5E742EAA210A3C9600A2D749 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5EEDEF09210A53E60010259F /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +311,8 @@
 		5EECD98D2108700C005B4497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EEDEF01210A4E200010259F /* RealmSwift.framework */,
+				5EEDEEFF210A4E050010259F /* Realm.framework */,
 				5E742EA1210A3B3D00A2D749 /* AlamofireImage.framework */,
 				5EECD99821087BE7005B4497 /* Nimble.framework */,
 				5EECD99921087BE7005B4497 /* Quick.framework */,
@@ -452,6 +475,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -470,6 +495,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -508,6 +535,7 @@
 				5EECD99F210889A3005B4497 /* MovieSearchListController.swift in Sources */,
 				5EECD96121070CCB005B4497 /* Movie.xcdatamodeld in Sources */,
 				5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */,
+				5EEDEF0A210A53E60010259F /* Movie.swift in Sources */,
 				5E742EA02109D93C00A2D749 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,13 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
 class MovieMessage: Message {
     
-    @objc class func getMovieMessage(withTitle title:String, pageNumber:Int, successCallBack: ((Message?) -> Void)!, failureCallBack: ((Message?) -> Void)!) -> MovieMessage {
+    var resultList: NSMutableArray?
+    
+    class func getMovieMessage(withTitle title:String, pageNumber:Int, successCallBack: ((Message?) -> Void)!, failureCallBack: ((Message?) -> Void)!) -> MovieMessage {
         let movieMessage: MovieMessage = MovieMessage()
         movieMessage.successCallBack = successCallBack
         movieMessage.failureCallBack = failureCallBack
@@ -22,9 +25,22 @@ class MovieMessage: Message {
     }
     
     override func onSuccess() {
-        self.request?.responseJSON(completionHandler: { (responseData) in
-            let jsonData = try! JSON(data: responseData.data!)
-            print("\(jsonData)")
-        })
+        if (responseData?.data != nil) {
+            resultList = NSMutableArray.init()
+            do {
+                let jsonData = try JSON(data: responseData!.data!)
+                let realm = try Realm()
+                for i in (0..<jsonData["results"].count) {
+                    let movieDetails = jsonData["results"][i].dictionaryObject! as NSDictionary
+                    let movie: Movie = Movie.createMovie(withDetails: movieDetails)
+                    try realm.write {
+                        realm.add(movie)
+                    }
+                    resultList!.add(movie)
+                }
+            } catch {
+                print("Error while saving data in Realm \(error)")
+            }
+        }
     }
 }
