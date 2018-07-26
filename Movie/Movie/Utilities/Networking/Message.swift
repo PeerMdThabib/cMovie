@@ -13,14 +13,11 @@ import SwiftyJSON
 class Message: NSObject {
     
     var path: String?
-    var requestBody: Data?
-    var priority: Operation.QueuePriority?
     var request: Alamofire.DataRequest?
     var responseData: Alamofire.DataResponse<Data>?
     
     var successCallBack: ((Message) -> Void)?
     var failureCallBack: ((Message) -> Void)?
-    
     
     func checkAcceptance() -> Bool {
         if (responseData!.error != nil) {

@@ -21,30 +21,35 @@ final class MovieDataHandler {
     var totalPages: Int = 0
     
     var movieList: NSMutableArray?
+    var isDownloading: Bool = false
     
-    func downloadMovies(withTitle title:String, onCompletion completion:() -> Void) {
+    func downloadMovies(withTitle title:String, onCompletion completion:@escaping () -> Void) {
         movieList?.removeAllObjects()
         downladMovies(withTitle: title, onPageNumber: 1, onCompletion: completion)
     }
     
-    func downloadMoviesFromNextPage(onCompletion completion:() -> Void) {
+    func downloadMoviesFromNextPage(onCompletion completion:@escaping () -> Void) {
+        if (isDownloading == true) {
+            return
+        }
         downladMovies(withTitle: movieTitle!, onPageNumber: currentPage+1, onCompletion: completion)
     }
     
-    func downladMovies(withTitle title:String, onPageNumber page:Int, onCompletion completion:() -> Void) {
+    func downladMovies(withTitle title:String, onPageNumber page:Int, onCompletion completion:@escaping () -> Void) {
         movieTitle = title
         currentPage = page
+        isDownloading = true
         let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: currentPage, successCallBack: { (message) in
-            
+            self.isDownloading = false
+            self.movieList?.addObjects(from: (message as! MovieMessage).resultList as! [Any])
+            completion()
         }) { (message) in
-            
+            self.isDownloading = false
+            completion()
         }
         NetworkManager.sharedInstance.sendMesage(message: movieMessage)
     }
     
-    func downloadMoviePosters(forMovies movies:NSArray) {
-        
-    }
     
     func getMoviesCount() -> Int {
         if (movieList == nil) {
@@ -61,9 +66,10 @@ final class MovieDataHandler {
         return (totalPages > currentPage)
     }
     
-    func getMovie(atIndex index:Int) {
+    func getMovie(atIndex index:Int) -> Movie? {
         if (movieList != nil && movieList!.count > index) {
-            
+            return movieList![index] as? Movie
         }
+        return nil
     }
 }
