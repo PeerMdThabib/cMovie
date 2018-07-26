@@ -193,11 +193,45 @@
 		5E742E982108D0F100A2D749 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5E742EA8210A3C6E00A2D749 /* Networking */,
+				5E742EAB210A3C9F00A2D749 /* Data Handler */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5E742EA8210A3C6E00A2D749 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
 				5E742E992108D58400A2D749 /* NetworkManager.swift */,
 				5E742E9F2109D93C00A2D749 /* Message.swift */,
 				5E742E9D2109C61400A2D749 /* MovieMessage.swift */,
 			);
-			path = Utilities;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5E742EAA210A3C9600A2D749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E742EAB210A3C9F00A2D749 /* Data Handler */ = {
+			isa = PBXGroup;
+			children = (
+				5E742E9B2108D59700A2D749 /* MovieDataHandler.swift */,
+			);
+			path = "Data Handler";
+			sourceTree = "<group>";
+		};
+		5EDE688E210A3CD30096A45A /* Storyboards and Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5EECD95C21070CCB005B4497 /* Main.storyboard */,
+				5EECD96221070CCF005B4497 /* Assets.xcassets */,
+				5EECD96421070CCF005B4497 /* LaunchScreen.storyboard */,
+			);
+			name = "Storyboards and Assets";
 			sourceTree = "<group>";
 		};
 		5EECD94C21070CCB005B4497 = {
@@ -224,13 +258,11 @@
 		5EECD95721070CCB005B4497 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				5EECD95821070CCB005B4497 /* AppDelegate.swift */,
+				5EEDEEF8210A3D470010259F /* Application */,
 				5E742E982108D0F100A2D749 /* Utilities */,
 				5E742E972108BC1500A2D749 /* Controllers */,
-				5E742E9B2108D59700A2D749 /* MovieDataHandler.swift */,
-				5EECD95C21070CCB005B4497 /* Main.storyboard */,
-				5EECD96221070CCF005B4497 /* Assets.xcassets */,
-				5EECD96421070CCF005B4497 /* LaunchScreen.storyboard */,
+				5E742EAA210A3C9600A2D749 /* Model */,
+				5EDE688E210A3CD30096A45A /* Storyboards and Assets */,
 				5EECD96721070CCF005B4497 /* Info.plist */,
 				5EECD95F21070CCB005B4497 /* Movie.xcdatamodeld */,
 			);
@@ -266,6 +298,14 @@
 				5EECD98E2108700D005B4497 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EEDEEF8210A3D470010259F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5EECD95821070CCB005B4497 /* AppDelegate.swift */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
