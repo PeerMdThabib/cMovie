@@ -24,10 +24,10 @@ final class NetworkManager: NSObject {
         
         enqueMessage(message: message)
         
-        let operation = Alamofire.request(message.path!).response { (responseData) in
+        let operation = Alamofire.request(message.path!).responseData(completionHandler: { (responseData) in
             message.responseData = responseData
-            self.dequeuMessage(message: message)
-        }
+            message.onOperationEnd()
+        })
         
         message.request = operation
     }

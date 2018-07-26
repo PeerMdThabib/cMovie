@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 final class MovieDataHandler {
     
     static let sharedInstance = MovieDataHandler()
-    private init() {}
+    private init() {
+        movieList = NSMutableArray.init()
+    }
     
     var movieTitle: String?
     var currentPage:Int = 0
@@ -20,6 +23,7 @@ final class MovieDataHandler {
     var movieList: NSMutableArray?
     
     func downloadMovies(withTitle title:String, onCompletion completion:() -> Void) {
+        movieList?.removeAllObjects()
         downladMovies(withTitle: title, onPageNumber: 1, onCompletion: completion)
     }
     
@@ -30,6 +34,12 @@ final class MovieDataHandler {
     func downladMovies(withTitle title:String, onPageNumber page:Int, onCompletion completion:() -> Void) {
         movieTitle = title
         currentPage = page
+        let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: currentPage, successCallBack: { (message) in
+            
+        }) { (message) in
+            
+        }
+        NetworkManager.sharedInstance.sendMesage(message: movieMessage)
     }
     
     func downloadMoviePosters(forMovies movies:NSArray) {

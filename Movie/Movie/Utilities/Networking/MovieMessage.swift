@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class MovieMessage: Message {
     
-    func getMovieMessage(withTitle title:String, pageNumber:Int, successCallBack: ((Message?) -> Void)!, failureCallBack: ((Message?) -> Void)!) -> MovieMessage {
+    @objc class func getMovieMessage(withTitle title:String, pageNumber:Int, successCallBack: ((Message?) -> Void)!, failureCallBack: ((Message?) -> Void)!) -> MovieMessage {
         let movieMessage: MovieMessage = MovieMessage()
         movieMessage.successCallBack = successCallBack
         movieMessage.failureCallBack = failureCallBack
@@ -21,6 +22,9 @@ class MovieMessage: Message {
     }
     
     override func onSuccess() {
-        
+        self.request?.responseJSON(completionHandler: { (responseData) in
+            let jsonData = try! JSON(data: responseData.data!)
+            print("\(jsonData)")
+        })
     }
 }

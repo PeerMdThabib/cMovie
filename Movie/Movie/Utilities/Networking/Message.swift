@@ -16,7 +16,7 @@ class Message: NSObject {
     var requestBody: Data?
     var priority: Operation.QueuePriority?
     var request: Alamofire.DataRequest?
-    var responseData: Alamofire.DefaultDataResponse?
+    var responseData: Alamofire.DataResponse<Data>?
     
     var successCallBack: ((Message) -> Void)?
     var failureCallBack: ((Message) -> Void)?
