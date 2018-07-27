@@ -60,7 +60,6 @@
 		5EEDEF0A210A53E60010259F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF09210A53E60010259F /* Movie.swift */; };
 		5EEDEF0D210AF86B0010259F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF0C210AF86B0010259F /* MovieCell.swift */; };
 		5EEDEF0F210AF9210010259F /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF0E210AF9210010259F /* LoadingCell.swift */; };
-		5EEDEF11210B04050010259F /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF10210B04050010259F /* MovieResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,7 +157,6 @@
 		5EEDEF09210A53E60010259F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		5EEDEF0C210AF86B0010259F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		5EEDEF0E210AF9210010259F /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
-		5EEDEF10210B04050010259F /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +235,6 @@
 		5E742EAA210A3C9600A2D749 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5EEDEF10210B04050010259F /* MovieResult.swift */,
 				5EEDEF09210A53E60010259F /* Movie.swift */,
 			);
 			path = Model;
@@ -546,7 +543,6 @@
 				5E742E9E2109C61400A2D749 /* MovieMessage.swift in Sources */,
 				5E742E9A2108D58400A2D749 /* NetworkManager.swift in Sources */,
 				5EEDEF0D210AF86B0010259F /* MovieCell.swift in Sources */,
-				5EEDEF11210B04050010259F /* MovieResult.swift in Sources */,
 				5E742E9C2108D59700A2D749 /* MovieDataHandler.swift in Sources */,
 				5EECD99F210889A3005B4497 /* MovieSearchListController.swift in Sources */,
 				5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */,
