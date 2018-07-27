@@ -60,6 +60,7 @@
 		5EEDEF0A210A53E60010259F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF09210A53E60010259F /* Movie.swift */; };
 		5EEDEF0D210AF86B0010259F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF0C210AF86B0010259F /* MovieCell.swift */; };
 		5EEDEF0F210AF9210010259F /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF0E210AF9210010259F /* LoadingCell.swift */; };
+		5EEDEF13210B1E9E0010259F /* SearchQueryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF12210B1E9E0010259F /* SearchQueryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		5EEDEF09210A53E60010259F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		5EEDEF0C210AF86B0010259F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		5EEDEF0E210AF9210010259F /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		5EEDEF12210B1E9E0010259F /* SearchQueryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +340,7 @@
 			children = (
 				5EEDEF0C210AF86B0010259F /* MovieCell.swift */,
 				5EEDEF0E210AF9210010259F /* LoadingCell.swift */,
+				5EEDEF12210B1E9E0010259F /* SearchQueryCell.swift */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				5E742E9C2108D59700A2D749 /* MovieDataHandler.swift in Sources */,
 				5EECD99F210889A3005B4497 /* MovieSearchListController.swift in Sources */,
 				5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */,
+				5EEDEF13210B1E9E0010259F /* SearchQueryCell.swift in Sources */,
 				5EEDEF0F210AF9210010259F /* LoadingCell.swift in Sources */,
 				5EEDEF0A210A53E60010259F /* Movie.swift in Sources */,
 				5E742EA02109D93C00A2D749 /* Message.swift in Sources */,
