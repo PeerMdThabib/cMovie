@@ -8,10 +8,16 @@
 
 import UIKit
 
+
 class MovieSearchListController: UIViewController {
 
     @IBOutlet weak var movieSearchBar: UISearchBar!
     @IBOutlet weak var movieTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        movieTableView.alpha = 0
+    }
     
 }
 
@@ -23,6 +29,9 @@ extension MovieSearchListController: UISearchBarDelegate {
         searchBar.endEditing(true)
         MovieDataHandler.sharedInstance.downloadMovies(withTitle: searchBar.text!) {
             self.movieTableView.reloadData()
+            UIView.animate(withDuration: 0.25, animations: {
+                self.movieTableView.alpha = 1
+            })
         }
     }
 }
@@ -42,13 +51,32 @@ extension MovieSearchListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let movie: Movie? = MovieDataHandler.sharedInstance.getMovie(atIndex: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        cell.textLabel?.text = movie?.title
-        return cell
+        var cell: UITableViewCell? = nil
+        
+        if (movie != nil) {
+            let movieCell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+            movieCell.loadData(forMovie: movie!)
+            cell = movieCell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+            MovieDataHandler.sharedInstance.downloadMoviesFromNextPage {
+                self.movieTableView.reloadData()
+            }
+        }
+        
+        return cell!
     }
 }
 
 extension MovieSearchListController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let movie: Movie? = MovieDataHandler.sharedInstance.getMovie(atIndex: indexPath.row)
+        if (movie == nil) {
+            return 41
+        }
+        return 222
+    }
     
 }
 
