@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,6 +111,43 @@
                                             <outlet property="loadingIndicator" destination="bFr-bO-niN" id="eq8-ak-jMj"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchQueryCell" rowHeight="44" id="IFS-dS-aLg" customClass="SearchQueryCell" customModule="Movie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="233" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IFS-dS-aLg" id="2DI-Rw-xZV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGU-Om-RTX">
+                                                    <rect key="frame" x="20" y="0.0" width="295" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchSideArrow" translatesAutoresizingMaskIntoConstraints="NO" id="tOw-JM-MI5">
+                                                    <rect key="frame" x="325" y="6.5" width="40" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="wmL-ID-Jg9"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tOw-JM-MI5" firstAttribute="leading" secondItem="jGU-Om-RTX" secondAttribute="trailing" constant="10" id="ylT-iL-X4m"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="jGU-Om-RTX" firstAttribute="leading" secondItem="IFS-dS-aLg" secondAttribute="leading" constant="20" id="4Hl-Xc-WET"/>
+                                            <constraint firstItem="jGU-Om-RTX" firstAttribute="centerY" secondItem="IFS-dS-aLg" secondAttribute="centerY" id="Es9-Qf-gso"/>
+                                            <constraint firstItem="tOw-JM-MI5" firstAttribute="centerY" secondItem="IFS-dS-aLg" secondAttribute="centerY" id="QnB-CJ-SET"/>
+                                            <constraint firstItem="tOw-JM-MI5" firstAttribute="height" secondItem="IFS-dS-aLg" secondAttribute="height" multiplier="0.7" id="U8F-4h-FbZ"/>
+                                            <constraint firstItem="jGU-Om-RTX" firstAttribute="height" secondItem="IFS-dS-aLg" secondAttribute="height" id="UKs-Vc-V6h"/>
+                                            <constraint firstAttribute="trailing" secondItem="tOw-JM-MI5" secondAttribute="trailing" constant="10" id="Xcc-ug-qrR"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="searchTitleLabel" destination="jGU-Om-RTX" id="1mq-EX-20f"/>
+                                            <outlet property="sideArrowImageView" destination="tOw-JM-MI5" id="fp9-qR-clO"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="u9a-9y-uVm" id="F81-3K-FFx"/>
@@ -140,4 +178,7 @@
             <point key="canvasLocation" x="-620" y="408.84557721139436"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SearchSideArrow" width="256" height="256"/>
+    </resources>
 </document>

@@ -14,12 +14,19 @@ final class MovieDataHandler {
     static let sharedInstance = MovieDataHandler()
     private init() {
         movieList = NSMutableArray.init()
+        searchQueryList = NSMutableArray.init()
+        
+        let savedQueires = UserDefaults.standard.value(forKey: "SearchQueryList") as? [Any]
+        if (savedQueires != nil) {
+            searchQueryList.addObjects(from: savedQueires!)
+        }
     }
     
     var movieTitle: String?
     var currentPage:Int = 0
     var totalPages: Int = 0
     
+    var searchQueryList: NSMutableArray
     var movieList: NSMutableArray?
     var isDownloading: Bool = false
     
@@ -43,6 +50,9 @@ final class MovieDataHandler {
             self.isDownloading = false
             self.movieList?.addObjects(from: (message as! MovieMessage).resultList as! [Any])
             self.totalPages = (message as! MovieMessage).totalPage
+            if (self.movieList!.count > 0) {
+                self.saveSearchQuery()
+            }
             completion()
         }) { (message) in
             self.isDownloading = false
@@ -50,14 +60,16 @@ final class MovieDataHandler {
         }
         NetworkManager.sharedInstance.sendMesage(message: movieMessage)
     }
-    
+}
+
+extension MovieDataHandler {
     
     func getMoviesCount() -> Int {
         if (movieList == nil) {
             return 0
         }
         var count = movieList!.count
-        if (hasNextPage() == true) {
+        if (count > 0 && hasNextPage() == true) {
             count += 1
         }
         return count
@@ -74,3 +86,33 @@ final class MovieDataHandler {
         return nil
     }
 }
+
+
+extension MovieDataHandler {
+    
+    func getSuccessfulSearchQueries() -> NSArray {
+        return searchQueryList
+    }
+    
+    func saveSearchQuery() {
+        if (searchQueryList.count >= 10) {
+            searchQueryList.removeLastObject()
+        }
+        if (searchQueryList.contains(movieTitle!)) {
+            searchQueryList.remove(movieTitle!)
+        }
+        searchQueryList.insert(movieTitle!, at: 0)
+        UserDefaults.standard.set(searchQueryList, forKey: "SearchQueryList")
+        UserDefaults.standard.synchronize()
+    }
+    
+    
+    func getSearchQueryCount() -> Int {
+        return searchQueryList.count
+    }
+    
+    func getSearchQuery(atIndex index: Int) -> String {
+        return searchQueryList[index] as! String
+    }
+}
+
