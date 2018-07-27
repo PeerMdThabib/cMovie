@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Movie" translatesAutoresizingMaskIntoConstraints="NO" id="G2p-uJ-zlO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="310" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="xmf-XP-tXo"/>
                                 </constraints>
@@ -45,7 +45,17 @@
                                     <outlet property="delegate" destination="u9a-9y-uVm" id="xp9-Ix-C4p"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5K9-Bd-nuQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNm-xf-KpN">
+                                <rect key="frame" x="310" y="64" width="65" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="6Xs-hc-WBo"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="searchCancelButtonTapped:" destination="u9a-9y-uVm" eventType="touchUpInside" id="YR4-AO-7jO"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5K9-Bd-nuQ">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,18 +167,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QNm-xf-KpN" firstAttribute="centerY" secondItem="G2p-uJ-zlO" secondAttribute="centerY" id="0T4-ed-mqi"/>
                             <constraint firstItem="5K9-Bd-nuQ" firstAttribute="centerX" secondItem="wY8-Pf-G9O" secondAttribute="centerX" id="2r0-2R-HT2"/>
-                            <constraint firstItem="G2p-uJ-zlO" firstAttribute="width" secondItem="6Dc-gv-HTh" secondAttribute="width" id="5a2-dT-gEo"/>
+                            <constraint firstItem="wY8-Pf-G9O" firstAttribute="trailing" secondItem="QNm-xf-KpN" secondAttribute="trailing" id="6st-rc-3wd"/>
+                            <constraint firstItem="QNm-xf-KpN" firstAttribute="leading" secondItem="G2p-uJ-zlO" secondAttribute="trailing" id="IXG-wD-nmq"/>
                             <constraint firstItem="5K9-Bd-nuQ" firstAttribute="top" secondItem="G2p-uJ-zlO" secondAttribute="bottom" id="LTH-Hk-2rP"/>
                             <constraint firstItem="wY8-Pf-G9O" firstAttribute="bottom" secondItem="5K9-Bd-nuQ" secondAttribute="bottom" id="SQ2-4f-0sC"/>
+                            <constraint firstItem="G2p-uJ-zlO" firstAttribute="leading" secondItem="wY8-Pf-G9O" secondAttribute="leading" id="WAN-EO-Nue"/>
                             <constraint firstItem="5K9-Bd-nuQ" firstAttribute="width" secondItem="6Dc-gv-HTh" secondAttribute="width" id="WUi-co-MWf"/>
-                            <constraint firstItem="G2p-uJ-zlO" firstAttribute="centerX" secondItem="wY8-Pf-G9O" secondAttribute="centerX" id="du9-CU-w8J"/>
+                            <constraint firstItem="QNm-xf-KpN" firstAttribute="height" secondItem="G2p-uJ-zlO" secondAttribute="height" id="qt1-4i-GIM"/>
                             <constraint firstItem="G2p-uJ-zlO" firstAttribute="top" secondItem="wY8-Pf-G9O" secondAttribute="top" id="xfE-rh-9t3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wY8-Pf-G9O"/>
                     </view>
                     <navigationItem key="navigationItem" title="C' MOVIE" id="HKO-hA-N3M"/>
                     <connections>
+                        <outlet property="cancelButtonTrailingConstraint" destination="6st-rc-3wd" id="pZ7-px-O5b"/>
                         <outlet property="movieSearchBar" destination="G2p-uJ-zlO" id="cS8-WT-EIi"/>
                         <outlet property="movieTableView" destination="5K9-Bd-nuQ" id="yzQ-WB-Myg"/>
                     </connections>
