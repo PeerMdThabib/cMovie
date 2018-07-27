@@ -63,6 +63,8 @@
 		5EEDEF13210B1E9E0010259F /* SearchQueryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF12210B1E9E0010259F /* SearchQueryCell.swift */; };
 		5EEDEF16210B35A00010259F /* WarningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF15210B35A00010259F /* WarningManager.swift */; };
 		5EEDEF18210B421C0010259F /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF17210B421C0010259F /* LogManager.swift */; };
+		5EEDEF1E210B8C700010259F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF1D210B8C700010259F /* Constants.swift */; };
+		5EEDEF20210B8C7F0010259F /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF1F210B8C7F0010259F /* AppStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,8 @@
 		5EEDEF12210B1E9E0010259F /* SearchQueryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryCell.swift; sourceTree = "<group>"; };
 		5EEDEF15210B35A00010259F /* WarningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningManager.swift; sourceTree = "<group>"; };
 		5EEDEF17210B421C0010259F /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		5EEDEF1D210B8C700010259F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5EEDEF1F210B8C7F0010259F /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +359,8 @@
 			children = (
 				5EEDEF15210B35A00010259F /* WarningManager.swift */,
 				5EEDEF17210B421C0010259F /* LogManager.swift */,
+				5EEDEF1D210B8C700010259F /* Constants.swift */,
+				5EEDEF1F210B8C7F0010259F /* AppStore.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -562,8 +568,10 @@
 				5E742E9E2109C61400A2D749 /* MovieMessage.swift in Sources */,
 				5E742E9A2108D58400A2D749 /* NetworkManager.swift in Sources */,
 				5EEDEF0D210AF86B0010259F /* MovieCell.swift in Sources */,
+				5EEDEF20210B8C7F0010259F /* AppStore.swift in Sources */,
 				5E742E9C2108D59700A2D749 /* MovieDataHandler.swift in Sources */,
 				5EECD99F210889A3005B4497 /* MovieSearchListController.swift in Sources */,
+				5EEDEF1E210B8C700010259F /* Constants.swift in Sources */,
 				5EECD95921070CCB005B4497 /* AppDelegate.swift in Sources */,
 				5EEDEF13210B1E9E0010259F /* SearchQueryCell.swift in Sources */,
 				5EEDEF0F210AF9210010259F /* LoadingCell.swift in Sources */,
