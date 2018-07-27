@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 import RealmSwift
+import Fabric
+import Crashlytics
 
 class AppStore {
     
     class func masterInit() {
+        
+        Fabric.with([Crashlytics.self])
+        AppStore.updateCrashlyticsUserInfo()
         
         LogManager.initialize()
         LogManager.logI(info: "\(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
@@ -28,4 +33,12 @@ class AppStore {
         
     }
     
+    
+    // MARK: - Crashlytics
+    
+    class func updateCrashlyticsUserInfo() {
+        // Can be configured based on logged in user.
+        Crashlytics.sharedInstance().setUserName("Sasi M")
+        Crashlytics.sharedInstance().setUserEmail("msasi7274@gmail.com")
+    }
 }
