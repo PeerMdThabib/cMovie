@@ -13,7 +13,7 @@ import RealmSwift
 class MovieMessage: Message {
     
     var searchQuery: String?
-    var resultList: NSMutableArray?
+    var resultList: NSMutableArray = NSMutableArray.init()
     var totalPage: Int = 0
     
     class func getMovieMessage(withTitle title:String, pageNumber:Int, successCallBack: ((Message?) -> Void)!, failureCallBack: ((Message?) -> Void)!) -> MovieMessage {
@@ -29,21 +29,31 @@ class MovieMessage: Message {
     
     override func onSuccess() {
         if (responseData?.data != nil) {
-            resultList = NSMutableArray.init()
+            
+            let responseDict = getResponseBodyAsDictionary()
+            if (responseDict == nil) {
+                return
+            }
+            
+            totalPage = responseDict!["total_pages"] as? Int ?? 0
+            let results = responseDict!["results"] as! NSArray
+
+            if (results.count == 0) {
+                WarningManager.sharedInstance.createAndPushWarning(message: "No results found. Please try again later", cancel: "Ok")
+                return
+            }
+
             do {
-                let jsonData = try JSON(data: responseData!.data!)
-                totalPage = jsonData.dictionaryObject!["total_pages"] as! Int
                 let realm = try Realm()
-                for i in (0..<jsonData["results"].count) {
-                    let movieDetails = jsonData["results"][i].dictionaryObject! as NSDictionary
-                    let movie: Movie = Movie.createMovie(withDetails: movieDetails, searchQuery: searchQuery!)
+                for response in results {
+                    let movie: Movie = Movie.createMovie(withDetails: response as! NSDictionary, searchQuery: searchQuery!)
                     try realm.write {
                         realm.add(movie)
                     }
-                    resultList!.add(movie)
+                    resultList.add(movie)
                 }
             } catch {
-                print("Error while saving data in Realm \(error)")
+                LogManager.logE(error: "Error while saving data in Realm \(error)")
             }
         }
     }

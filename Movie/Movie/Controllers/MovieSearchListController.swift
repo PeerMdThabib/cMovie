@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class MovieSearchListController: UIViewController {
 
     enum DataType : NSInteger {
@@ -19,6 +18,8 @@ class MovieSearchListController: UIViewController {
     
     @IBOutlet weak var movieSearchBar: UISearchBar!
     @IBOutlet weak var movieTableView: UITableView!
+    @IBOutlet weak var cancelButtonTrailingConstraint: NSLayoutConstraint!
+    
     var dataType: DataType = .None
     
     override func viewDidLoad() {
@@ -26,6 +27,26 @@ class MovieSearchListController: UIViewController {
         movieTableView.alpha = 0
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cancelButtonTrailingConstraint.constant = -65
+        view.layoutIfNeeded()
+    }
+    
+    @IBAction func searchCancelButtonTapped(_ sender: Any) {
+        hideCancelAndReloadMovies()
+    }
+    
+    func hideCancelAndReloadMovies() {
+        cancelButtonTrailingConstraint.constant = -65
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.layoutIfNeeded()
+        }) { (finished) in
+            self.dataType = .Movie
+            self.movieSearchBar.endEditing(true)
+            self.movieTableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        }
+    }
 }
 
 extension MovieSearchListController: UISearchBarDelegate {
@@ -34,6 +55,10 @@ extension MovieSearchListController: UISearchBarDelegate {
         dataType = .SearchQuery
         if (MovieDataHandler.sharedInstance.getSearchQueryCount() > 0) {
             displayTableViewWithAnimation()
+        }
+        cancelButtonTrailingConstraint.constant = 0
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -49,15 +74,16 @@ extension MovieSearchListController: UISearchBarDelegate {
         MovieDataHandler.sharedInstance.downloadMovies(withTitle: movieSearchBar.text!) {
             self.displayTableViewWithAnimation()
         }
-        dataType = .Movie
-        movieTableView.reloadData()
+        hideCancelAndReloadMovies()
     }
     
     func displayTableViewWithAnimation() {
-        self.movieTableView.reloadData()
-        UIView.animate(withDuration: 0.25, animations: {
-            self.movieTableView.alpha = 1
-        })
+        movieTableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        if (movieTableView.alpha == 0) {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.movieTableView.alpha = 1
+            })
+        }
     }
 }
 

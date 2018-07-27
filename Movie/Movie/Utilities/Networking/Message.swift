@@ -18,6 +18,7 @@ class Message: NSObject {
     var methodType: Alamofire.HTTPMethod = .get
     var parameters: Parameters?
     var parametersEncoding: ParameterEncoding = URLEncoding(destination: .httpBody)
+    var errorMessage: String?
     
     var successCallBack: ((Message) -> Void)?
     var failureCallBack: ((Message) -> Void)?
@@ -27,8 +28,11 @@ class Message: NSObject {
             return false
         }
         
+        errorMessage = getErrorMessage()
+        
         if (responseData!.response!.statusCode >= 200 &&
-            responseData!.response!.statusCode < 300) {
+            responseData!.response!.statusCode < 300 &&
+            errorMessage == nil) {
             return true
         }
         
@@ -39,11 +43,13 @@ class Message: NSObject {
         let isSuccess = checkAcceptance()
         
         if (isSuccess == true) {
+            LogManager.logI(info: "[NETWORK][SUCCESS] " + "\(path!)" + " Code: \(responseData!.response!.statusCode)" + " Response Content: \(getResponseBodyAsString())")
             onSuccess()
             if (successCallBack != nil) {
                 successCallBack!(self)
             }
         } else {
+            LogManager.logE(error: "[NETWORK][FAILURE] " + "\(path!)" + " Code: \(String(describing: responseData?.response?.statusCode))" + " Error Description: \(responseData?.error?.localizedDescription ?? "") \(errorMessage ?? "")")
             onFailure()
             if (failureCallBack != nil) {
                 failureCallBack!(self)
@@ -52,10 +58,60 @@ class Message: NSObject {
     }
     
     func onSuccess() {
-        
+        // DO NOTHIG: Subclass to override
     }
     
     func onFailure() {
-        
+        if (errorMessage == nil) {
+            if (NetworkReachabilityManager()!.isReachable == false) {
+                errorMessage = "No internet connection. Please check your connection status and try again."
+            } else {
+                errorMessage = "Could not connect to the server. Please try again later."
+            }
+        }
+        WarningManager.sharedInstance.createAndPushWarning(message: errorMessage!, cancel: "Ok")
+    }
+    
+    func getErrorMessage() -> String? {
+        do {
+            let errors = try JSON(data: responseData!.data!)["errors"].array
+            if (errors != nil) {
+                let errorMessage: NSMutableString = ""
+                for error in errors! {
+                    errorMessage.append(error.string!)
+                }
+                return errorMessage as String
+            }
+        } catch {
+            LogManager.logE(error: "Error while saving data in Realm \(error)")
+        }
+        return nil
+    }
+    
+    func getResponseBodyAsString() -> String! {
+        do {
+            return try JSON(data: responseData!.data!).rawString(.utf8, options: .sortedKeys)
+        } catch {
+            LogManager.logE(error: "Error parsing response data \(error)")
+            return ""
+        }
+    }
+    
+    func getResponseBodyAsDictionary() -> NSDictionary? {
+        do {
+            return try JSON(data: responseData!.data!).dictionaryObject as NSDictionary?
+        } catch {
+            LogManager.logE(error: "Error parsing response data \(error)")
+            return nil
+        }
+    }
+    
+    func getResponseBodyAsList() -> NSArray? {
+        do {
+            return try JSON(data: responseData!.data!).arrayObject as NSArray?
+        } catch {
+            LogManager.logE(error: "Error parsing response data \(error)")
+            return nil
+        }
     }
 }

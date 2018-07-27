@@ -19,6 +19,10 @@ final class NetworkManager: NSObject {
         requestQueues = NSMutableSet.init()
     }
     
+    func hasInternet() -> Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
+    
     func sendMesage(message: Message) {
         enqueMessage(message: message)
         let operation = Alamofire.request(message.path!, method: message.methodType, parameters: message.parameters, encoding: message.parametersEncoding, headers: nil).responseData { (responseData) in
