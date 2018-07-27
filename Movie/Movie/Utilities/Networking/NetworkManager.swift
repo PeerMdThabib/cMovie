@@ -20,14 +20,12 @@ final class NetworkManager: NSObject {
     }
     
     func sendMesage(message: Message) {
-        
         enqueMessage(message: message)
-        
-        let operation = Alamofire.request(message.path!).responseData(completionHandler: { (responseData) in
+        let operation = Alamofire.request(message.path!, method: message.methodType, parameters: message.parameters, encoding: message.parametersEncoding, headers: nil).responseData { (responseData) in
             message.responseData = responseData
             message.onOperationEnd()
-        })
-        
+            self.dequeuMessage(message: message)
+        }
         message.request = operation
     }
     

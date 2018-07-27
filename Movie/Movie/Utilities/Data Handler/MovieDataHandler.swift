@@ -42,6 +42,7 @@ final class MovieDataHandler {
         let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: currentPage, successCallBack: { (message) in
             self.isDownloading = false
             self.movieList?.addObjects(from: (message as! MovieMessage).resultList as! [Any])
+            self.totalPages = (message as! MovieMessage).totalPage
             completion()
         }) { (message) in
             self.isDownloading = false

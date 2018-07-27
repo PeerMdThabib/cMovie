@@ -15,6 +15,9 @@ class Message: NSObject {
     var path: String?
     var request: Alamofire.DataRequest?
     var responseData: Alamofire.DataResponse<Data>?
+    var methodType: Alamofire.HTTPMethod = .get
+    var parameters: Parameters?
+    var parametersEncoding: ParameterEncoding = URLEncoding(destination: .httpBody)
     
     var successCallBack: ((Message) -> Void)?
     var failureCallBack: ((Message) -> Void)?
