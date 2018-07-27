@@ -65,6 +65,8 @@
 		5EEDEF18210B421C0010259F /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF17210B421C0010259F /* LogManager.swift */; };
 		5EEDEF1E210B8C700010259F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF1D210B8C700010259F /* Constants.swift */; };
 		5EEDEF20210B8C7F0010259F /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF1F210B8C7F0010259F /* AppStore.swift */; };
+		5EEDEF24210B944F0010259F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; };
+		5EEDEF25210B944F0010259F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,8 @@
 		5EEDEF17210B421C0010259F /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		5EEDEF1D210B8C700010259F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5EEDEF1F210B8C7F0010259F /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		5EEDEF22210B944E0010259F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		5EEDEF23210B944F0010259F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				5E742EA2210A3B3D00A2D749 /* AlamofireImage.framework in Frameworks */,
 				5EECD99A21087BE7005B4497 /* Nimble.framework in Frameworks */,
 				5EECD99B21087BE7005B4497 /* Quick.framework in Frameworks */,
+				5EEDEF24210B944F0010259F /* Fabric.framework in Frameworks */,
+				5EEDEF25210B944F0010259F /* Crashlytics.framework in Frameworks */,
 				5EECD9972108739A005B4497 /* UIKit.framework in Frameworks */,
 				5EECD994210872BF005B4497 /* SwiftyJSON.framework in Frameworks */,
 				5EECD98F2108700D005B4497 /* Alamofire.framework in Frameworks */,
@@ -324,6 +330,8 @@
 		5EECD98D2108700C005B4497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EEDEF23210B944F0010259F /* Crashlytics.framework */,
+				5EEDEF22210B944E0010259F /* Fabric.framework */,
 				5EEDEF01210A4E200010259F /* RealmSwift.framework */,
 				5EEDEEFF210A4E050010259F /* Realm.framework */,
 				5E742EA1210A3B3D00A2D749 /* AlamofireImage.framework */,
@@ -377,6 +385,7 @@
 				5EECD95321070CCB005B4497 /* Resources */,
 				5EECD9902108702A005B4497 /* ShellScript */,
 				5EECD991210870C2005B4497 /* CopyFiles */,
+				5EEDEF21210B942E0010259F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -556,6 +565,19 @@
 			shellPath = /bin/sh;
 			shellScript = "";
 		};
+		5EEDEF21210B942E0010259F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 87452b54f065f91fde910bd8362b24eab20108b7 999ddd03fe3d8598fec82a782841f6a21bce51064fd0c76caf93dc8cc6ed667c";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -665,7 +687,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -754,6 +776,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Movie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -776,6 +799,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Movie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

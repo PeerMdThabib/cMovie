@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 final class LogManager: NSObject {
 
@@ -64,7 +65,7 @@ final class LogManager: NSObject {
             text =  "\(text!)" + "\(message ?? "")"
             
             //CLSLog will crash when you get too much text.
-//            CLSLog("%@", (text.count > 50000) ? (text as? NSString)?.substring(to: 50000) : text)
+            CLSLogv("%@", getVaList([(text!.count > 50000) ? (text! as NSString).substring(to: 50000) : text!]))
             
             if (printToConsole == false) {
                 return
