@@ -136,6 +136,7 @@ extension MovieSearchListController: UITableViewDataSource {
             break
         }
         
+        cell!.selectionStyle = .none
         return cell!
     }
 }
@@ -143,17 +144,7 @@ extension MovieSearchListController: UITableViewDataSource {
 extension MovieSearchListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch dataType {
-        case .Movie:
-            let movie: Movie? = MovieDataHandler.sharedInstance.getMovie(atIndex: indexPath.row)
-            if (movie == nil) {
-                return 41
-            }
-            return 222
-            
-        default:
-            return 44
-        }
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

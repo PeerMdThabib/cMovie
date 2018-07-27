@@ -27,9 +27,9 @@ class MovieCell: UITableViewCell {
                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.black,
                                                                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)])
         
-        let attriReleaseDateString = NSAttributedString(string:"\(movie.releaseDate)" + "\n" + "\n",
-                                                        attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray,
-                                                                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+        let attriReleaseDateString = NSAttributedString(string:"\(movie.formattedReleaseDate)" + "\n",
+                                                        attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray,
+                                                                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)])
         
         let attriOverviewString = NSAttributedString(string:movie.fullOverview,
                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.black,
@@ -44,9 +44,9 @@ class MovieCell: UITableViewCell {
         
         if (movie.posterPath.count > 0) {
             posterImageView.af_setImage(
-                withURL: URL(string: "http://image.tmdb.org/t/p/w92" + movie.posterPath)!,
+                withURL: URL(string: "http://image.tmdb.org/t/p/w185" + movie.posterPath)!,
                 placeholderImage: UIImage.init(named: "PosterPlaceholder"),
-                filter: AspectScaledToFitSizeFilter(size: posterImageView.frame.size) as ImageFilter,
+                filter: AspectScaledToFillSizeFilter(size: posterImageView.frame.size) as ImageFilter,
                 imageTransition: .crossDissolve(0.2)
             )
         } else {

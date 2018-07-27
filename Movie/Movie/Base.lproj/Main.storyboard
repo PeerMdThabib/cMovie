@@ -73,22 +73,22 @@
                                                         <constraint firstAttribute="width" constant="90" id="a8l-E8-bwq"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idk-Bb-CPz">
-                                                    <rect key="frame" x="105" y="10" width="260" height="144"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idk-Bb-CPz">
+                                                    <rect key="frame" x="105" y="10" width="260" height="143.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Idk-Bb-CPz" firstAttribute="bottom" secondItem="xGD-xP-DyN" secondAttribute="bottom" id="59U-zK-I6G"/>
-                                                <constraint firstItem="Idk-Bb-CPz" firstAttribute="top" secondItem="xGD-xP-DyN" secondAttribute="top" id="HL9-4x-d7G"/>
-                                                <constraint firstItem="Idk-Bb-CPz" firstAttribute="leading" secondItem="xGD-xP-DyN" secondAttribute="trailing" constant="5" id="ZUN-gz-2Np"/>
+                                                <constraint firstItem="Idk-Bb-CPz" firstAttribute="top" secondItem="4no-Zc-z7I" secondAttribute="top" constant="10" id="07S-sv-CFh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Idk-Bb-CPz" secondAttribute="trailing" constant="10" id="c50-DF-w7X"/>
+                                                <constraint firstAttribute="bottom" secondItem="Idk-Bb-CPz" secondAttribute="bottom" constant="10" id="fAo-Ju-UoM"/>
+                                                <constraint firstItem="Idk-Bb-CPz" firstAttribute="leading" secondItem="xGD-xP-DyN" secondAttribute="trailing" constant="5" id="vLA-4i-cXT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="xGD-xP-DyN" firstAttribute="top" secondItem="qDo-od-ep4" secondAttribute="top" constant="10" id="HS2-6a-8Oq"/>
-                                            <constraint firstAttribute="trailing" secondItem="Idk-Bb-CPz" secondAttribute="trailing" constant="10" id="q54-lV-Hzb"/>
                                             <constraint firstAttribute="bottom" secondItem="xGD-xP-DyN" secondAttribute="bottom" constant="10" id="v7o-6s-bcc"/>
                                             <constraint firstItem="xGD-xP-DyN" firstAttribute="leading" secondItem="qDo-od-ep4" secondAttribute="leading" constant="10" id="vnn-hq-jnQ"/>
                                         </constraints>
