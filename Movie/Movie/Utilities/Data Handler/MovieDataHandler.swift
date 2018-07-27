@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
 final class MovieDataHandler {
     
@@ -31,7 +32,7 @@ final class MovieDataHandler {
     var isDownloading: Bool = false
     
     func downloadMovies(withTitle title:String, onCompletion completion:@escaping () -> Void) {
-        movieList?.removeAllObjects()
+        reset()
         downladMovies(withTitle: title, onPageNumber: 1, onCompletion: completion)
     }
     
@@ -55,10 +56,39 @@ final class MovieDataHandler {
             }
             completion()
         }) { (message) in
+            self.loadCachedMovieData()
             self.isDownloading = false
             completion()
         }
         NetworkManager.sharedInstance.sendMesage(message: movieMessage)
+    }
+    
+    func loadCachedMovieData() {
+        movieList?.addObjects(from: retrieveMovieData().value(forKey: "self") as! [Any])
+        totalPages = 1
+    }
+    
+    func clearCachedMovieData() {
+        if (currentPage > 1) {
+            return
+        }
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(retrieveMovieData())
+        }
+    }
+    
+    func retrieveMovieData() -> Results<Movie> {
+        let realm = try! Realm()
+        return realm.objects(Movie.self).filter("query = '\(movieTitle!)'")
+    }
+    
+    func reset() {
+        movieList?.removeAllObjects()
+        totalPages = 0
+        currentPage = 0
+        isDownloading = false
+        movieTitle = ""
     }
 }
 

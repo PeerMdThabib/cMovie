@@ -44,6 +44,7 @@ class MovieMessage: Message {
             }
 
             do {
+                MovieDataHandler.sharedInstance.clearCachedMovieData()
                 let realm = try Realm()
                 for response in results {
                     let movie: Movie = Movie.createMovie(withDetails: response as! NSDictionary, searchQuery: searchQuery!)

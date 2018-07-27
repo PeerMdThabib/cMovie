@@ -58,7 +58,7 @@ class Message: NSObject {
     }
     
     func onSuccess() {
-        // DO NOTHIG: Subclass to override
+        // DO NOTHING: Subclass to override
     }
     
     func onFailure() {
