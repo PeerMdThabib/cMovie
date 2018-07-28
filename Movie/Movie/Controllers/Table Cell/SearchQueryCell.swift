@@ -13,9 +13,4 @@ class SearchQueryCell: UITableViewCell {
     @IBOutlet weak var sideArrowImageView: UIImageView!
     @IBOutlet weak var searchTitleLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
 }

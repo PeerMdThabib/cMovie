@@ -15,12 +15,6 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    // MARK: Init Methods
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func loadData(forMovie movie:Movie) {
         
         let attriTitleString = NSAttributedString(string:"\(movie.title)" + "\n",

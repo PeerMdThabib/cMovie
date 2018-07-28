@@ -12,6 +12,14 @@ import RealmSwift
 
 final class MovieDataHandler {
     
+    var movieTitle: String?
+    var currentPage:Int = 0
+    var totalPages: Int = 0
+    
+    var searchQueryList: NSMutableArray
+    var movieList: NSMutableArray?
+    var isDownloading: Bool = false
+    
     static let sharedInstance = MovieDataHandler()
     private init() {
         movieList = NSMutableArray.init()
@@ -22,14 +30,6 @@ final class MovieDataHandler {
             searchQueryList.addObjects(from: savedQueires!)
         }
     }
-    
-    var movieTitle: String?
-    var currentPage:Int = 0
-    var totalPages: Int = 0
-    
-    var searchQueryList: NSMutableArray
-    var movieList: NSMutableArray?
-    var isDownloading: Bool = false
     
     func downloadMovies(withTitle title:String, onCompletion completion:@escaping () -> Void) {
         reset()
@@ -125,11 +125,11 @@ extension MovieDataHandler {
     }
     
     func saveSearchQuery() {
-        if (searchQueryList.count >= 10) {
-            searchQueryList.removeLastObject()
-        }
         if (searchQueryList.contains(movieTitle!)) {
             searchQueryList.remove(movieTitle!)
+        }
+        if (searchQueryList.count >= 10) {
+            searchQueryList.removeLastObject()
         }
         searchQueryList.insert(movieTitle!, at: 0)
         UserDefaults.standard.set(searchQueryList, forKey: "SearchQueryList")
