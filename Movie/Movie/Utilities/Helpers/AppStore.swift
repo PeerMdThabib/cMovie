@@ -21,12 +21,7 @@ class AppStore {
         
         LogManager.initialize()
         LogManager.logI(info: "\(String(describing: Realm.Configuration.defaultConfiguration.fileURL))")
-        
-        if (LIVE_MODE == true) {
-            LogManager.setPrintToConsole(print: false)
-        } else {
-            LogManager.setPrintToConsole(print: false)
-        }
+        LogManager.setPrintToConsole(print: !LIVE_MODE)
         
         UITableViewCell.appearance().separatorInset = .zero
         UITableViewCell.appearance().backgroundColor = UIColor.white

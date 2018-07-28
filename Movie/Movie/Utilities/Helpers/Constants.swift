@@ -10,7 +10,7 @@ import Foundation
 
 let LOG_BACKGROUND_NETWORK: Bool = true
 let LOG_NETWORKING_DETAILS: Bool = true
-let LIVE_MODE: Bool = false
+let LIVE_MODE: Bool = true
 
 let CRASHLYTICS_API_KEY: String = "87452b54f065f91fde910bd8362b24eab20108b7"
 

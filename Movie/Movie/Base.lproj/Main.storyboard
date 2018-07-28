@@ -30,7 +30,7 @@
         <!--C' MOVIE-->
         <scene sceneID="2CX-dU-gEt">
             <objects>
-                <viewController id="u9a-9y-uVm" customClass="MovieSearchListController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieSearchListController" id="u9a-9y-uVm" customClass="MovieSearchListController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Dc-gv-HTh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

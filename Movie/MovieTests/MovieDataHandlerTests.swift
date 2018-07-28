@@ -14,7 +14,7 @@ import Nimble
 class MovieDataHandlerTests: QuickSpec {
     override func spec() {
         let movieDataHandler = MovieDataHandler.init()
-        let savedQueires = UserDefaults.standard.value(forKey: "SearchQueryList") as? [Any]
+        var savedQueires = UserDefaults.standard.value(forKey: "SearchQueryList") as? [Any]
         
         describe("MovieDataHandler") {
             context("On Init") {
@@ -28,7 +28,7 @@ class MovieDataHandlerTests: QuickSpec {
                     expect(movieDataHandler.getMovie(atIndex: 0)).to(beNil())
                 }
                 it("should have search query from User deafults loaded") {
-                    expect(movieDataHandler.getSearchQueryCount()).to(equal(savedQueires?.count))
+                    expect(movieDataHandler.getSearchQueryCount()).to(equal(savedQueires?.count ?? 0))
                 }
                 it("should return saved search queries at given index") {
                     if (savedQueires != nil && savedQueires!.count > 0) {
@@ -87,6 +87,29 @@ class MovieDataHandlerTests: QuickSpec {
                     }
                     it("movies at index 0 must not be nil") {
                         expect(movieDataHandler.getMovie(atIndex: 0) != nil).to(equal(true))
+                    }
+                })
+            }
+        }
+        
+        describe("MovieDataHandlet Search Query Storage") {
+            context("Successful search query storage") {
+                savedQueires = ["Batman", "Avengers", "Spider Man", "Inception", "Mission Impossible", "Fast and Furious", "Harry Potter", "Iron Man", "Wolverine", "Sherlock Holmes"]
+                movieDataHandler.searchQueryList = NSMutableArray.init(array: savedQueires!)
+                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {
+                    it("should move 'Avengers' to first in QUery list") {
+                        expect(movieDataHandler.getSearchQuery(atIndex: 0)).to(equal("Avengers"))
+                    }
+                    it("should not exceed 10 counts") {
+                        expect(movieDataHandler.getSearchQueryCount()).to(equal(10))
+                    }
+                })
+                movieDataHandler.downloadMovies(withTitle: "Incredibles", onCompletion: {
+                    it("should remove last query from the list") {
+                        expect(movieDataHandler.searchQueryList.contains("Sherlock Holmes")).to(equal(false))
+                    }
+                    it("should not exceed 10 counts") {
+                        expect(movieDataHandler.getSearchQueryCount()).to(equal(10))
                     }
                 })
             }
