@@ -6,6 +6,10 @@
 //  Copyright © 2018 Sasi. All rights reserved.
 //
 
+// Application start point from AppDelegate
+// Initializes required frameworks and prepares app for Production/Dev environment
+// Extentable to handle application appearance preferences
+
 import Foundation
 import UIKit
 import RealmSwift

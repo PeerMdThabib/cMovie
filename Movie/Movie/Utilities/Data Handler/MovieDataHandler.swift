@@ -110,6 +110,9 @@ class MovieDataHandler {
     }
 }
 
+
+// Extension to handle downloaded movie list
+// Helps MovieSearchList table to load movie data
 extension MovieDataHandler {
     
     func getMoviesCount() -> Int {
@@ -133,6 +136,8 @@ extension MovieDataHandler {
 }
 
 
+// Extension to handle saved successful search queries
+// Helps MovieSearchList table to load search query data
 extension MovieDataHandler {
     
     func saveSearchQuery() {

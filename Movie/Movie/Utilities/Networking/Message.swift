@@ -6,6 +6,11 @@
 //  Copyright © 2018 Sasi. All rights reserved.
 //
 
+// Parent class for all network requests. Helps processing the received data and server errors
+// Throws error alerts using Warning manager based on server response
+// Uses success/failure callbacks to process request completion
+// Supports JSON parsing and customization of request headers/post parameters
+
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -90,7 +95,11 @@ class Message: NSObject {
     
     func getResponseBodyAsString() -> String! {
         do {
-            return try JSON(data: responseData!.data!).rawString(.utf8, options: .sortedKeys)
+            if #available(iOS 11.0, *) {
+                return try JSON(data: responseData!.data!).rawString(.utf8, options: .sortedKeys)
+            } else {
+                return try JSON(data: responseData!.data!).rawString()
+            }
         } catch {
             LogManager.logE(error: "Error parsing response data \(error)")
             return ""

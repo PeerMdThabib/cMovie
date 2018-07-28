@@ -6,6 +6,11 @@
 //  Copyright © 2018 Sasi. All rights reserved.
 //
 
+// Simple wrapper class to handle all logging
+// Keeps loggingQueue to make logging faster and better
+// Helps filtering log messages based of filter level to prevent nnwanted console printing
+// Sends log messages to Crashlytics via CLSLogv function
+
 import UIKit
 import Crashlytics
 

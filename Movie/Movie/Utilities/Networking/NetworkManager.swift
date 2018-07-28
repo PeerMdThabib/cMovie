@@ -4,7 +4,11 @@
 //
 //  Created by Sasi M on 25/07/18.
 //  Copyright © 2018 Sasi. All rights reserved.
-//
+
+
+// Network layer to keep queue of all ongoing network messages
+// Sends almofire requests for incoming messages
+// Helps cancelling ongoing network message
 
 import UIKit
 import Alamofire

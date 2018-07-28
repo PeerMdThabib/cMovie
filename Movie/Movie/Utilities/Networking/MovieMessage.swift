@@ -6,6 +6,10 @@
 //  Copyright © 2018 Sasi. All rights reserved.
 //
 
+// API end point for Movie list retrieval
+// Prepares post parameters and URL path for incoming search query
+// Validates response JSON result and total page count
+
 import Foundation
 import SwiftyJSON
 import RealmSwift
