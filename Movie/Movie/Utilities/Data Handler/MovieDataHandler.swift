@@ -49,10 +49,10 @@ class MovieDataHandler {
     }
     
     func downladMovies(withTitle title:String, onPageNumber page:Int, onCompletion completion:@escaping () -> Void) {
-        movieTitle = title
-        currentPage = page
         isDownloading = true
-        let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: currentPage, successCallBack: { (message) in
+        let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: page, successCallBack: { (message) in
+            self.movieTitle = title
+            self.currentPage = page
             self.isDownloading = false
             self.clearCachedMovieData()
             do {
@@ -134,10 +134,6 @@ extension MovieDataHandler {
 
 
 extension MovieDataHandler {
-    
-    func getSuccessfulSearchQueries() -> NSArray {
-        return searchQueryList
-    }
     
     func saveSearchQuery() {
         if (searchQueryList.contains(movieTitle!)) {
