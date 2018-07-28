@@ -18,6 +18,8 @@ class MovieSearchListController: UIViewController {
     
     @IBOutlet weak var movieSearchBar: UISearchBar!
     @IBOutlet weak var movieTableView: UITableView!
+    @IBOutlet weak var launchLabel: UILabel!
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var cancelButtonTrailingConstraint: NSLayoutConstraint!
     
     var dataType: DataType = .None
@@ -29,8 +31,25 @@ class MovieSearchListController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        searchBarTopConstraint.constant = -56
         cancelButtonTrailingConstraint.constant = -65
         view.layoutIfNeeded()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.3, delay: 0.5, options: .beginFromCurrentState, animations: {
+            self.launchLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
+            self.launchLabel.alpha = 0
+        }) { (finished) in
+            self.launchLabel.removeFromSuperview()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.searchBarTopConstraint.constant = 0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     @IBAction func searchCancelButtonTapped(_ sender: Any) {

@@ -35,6 +35,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="C' MOVIE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atN-2T-0t4">
+                                <rect key="frame" x="35" y="209" width="305" height="248"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Movie" translatesAutoresizingMaskIntoConstraints="NO" id="G2p-uJ-zlO">
                                 <rect key="frame" x="0.0" y="64" width="310" height="56"/>
                                 <constraints>
@@ -183,8 +190,10 @@
                     <navigationItem key="navigationItem" title="C' MOVIE" id="HKO-hA-N3M"/>
                     <connections>
                         <outlet property="cancelButtonTrailingConstraint" destination="6st-rc-3wd" id="pZ7-px-O5b"/>
+                        <outlet property="launchLabel" destination="atN-2T-0t4" id="VXg-6Z-T5c"/>
                         <outlet property="movieSearchBar" destination="G2p-uJ-zlO" id="cS8-WT-EIi"/>
                         <outlet property="movieTableView" destination="5K9-Bd-nuQ" id="yzQ-WB-Myg"/>
+                        <outlet property="searchBarTopConstraint" destination="xfE-rh-9t3" id="vMu-JX-N29"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDE-Hr-erq" userLabel="First Responder" sceneMemberID="firstResponder"/>
