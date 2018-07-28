@@ -22,7 +22,7 @@ class MovieMessage: Message {
         movieMessage.failureCallBack = failureCallBack
         movieMessage.methodType = .post
         movieMessage.searchQuery = title
-        movieMessage.path = "http://api.themoviedb.org/3/search/movie?api_key=2696829a81b1b5827d515ff121700838"
+        movieMessage.path = MOVIE_URL
         movieMessage.parameters = ["query": title, "page": pageNumber]
         return movieMessage
     }

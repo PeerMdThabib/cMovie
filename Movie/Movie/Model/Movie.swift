@@ -41,5 +41,17 @@ class Movie: Object {
         formatter.dateFormat = "dd MMM yyyy"
         return formatter.string(from: formattedDate!)
     }
+    
+    func getImageSizeString(forHeight height: Float) -> String {
+        var imageSizeString = ""
+        if (height < 70) {
+            imageSizeString = "w92"
+        } else if (height < 160) {
+            imageSizeString = "w185"
+        } else {
+            imageSizeString = "w500"
+        }
+        return imageSizeString
+    }
 }
 

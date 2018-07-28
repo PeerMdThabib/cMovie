@@ -38,7 +38,7 @@ class MovieCell: UITableViewCell {
         
         if (movie.posterPath.count > 0) {
             posterImageView.af_setImage(
-                withURL: URL(string: "http://image.tmdb.org/t/p/w185" + movie.posterPath)!,
+                withURL: URL(string: IMAGE_URL + movie.getImageSizeString(forHeight: Float(frame.size.height)) + movie.posterPath)!,
                 placeholderImage: UIImage.init(named: "PosterPlaceholder"),
                 filter: AspectScaledToFillSizeFilter(size: posterImageView.frame.size) as ImageFilter,
                 imageTransition: .crossDissolve(0.2)
