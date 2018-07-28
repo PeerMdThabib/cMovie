@@ -17,6 +17,10 @@ class MovieCell: UITableViewCell {
     
     func loadData(forMovie movie:Movie) {
         
+        // Attributed string for Movie Title / Release Date / Overview design
+        // Big and black Movie title at the top
+        // Followed by medium sized release date in gray
+        // Followed by smaller sized full movie overview in black
         let attriTitleString = NSAttributedString(string:"\(movie.title)" + "\n",
                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.black,
                                                                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)])
@@ -36,6 +40,8 @@ class MovieCell: UITableViewCell {
         
         detailsLabel.attributedText = attriMovieDetailString
         
+        // Seemless image download and loading into ImageView using AlamofireImage
+        // Images made AspectFill to fill the imageView to keep consistency with the movie details text
         if (movie.posterPath.count > 0) {
             posterImageView.af_setImage(
                 withURL: URL(string: IMAGE_URL + movie.getImageSizeString(forHeight: Float(frame.size.height)) + movie.posterPath)!,
@@ -51,6 +57,8 @@ class MovieCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        // Cancel any ongoing AlamofireImage download request
+        // Also remove animation layers from image view for cell reuse
         detailsLabel.text = ""
         posterImageView.af_cancelImageRequest()
         posterImageView.layer.removeAllAnimations()

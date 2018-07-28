@@ -28,11 +28,14 @@ class MovieSearchListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hide tableView on initial load to avoid showing empty table
         movieTableView.alpha = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Hide navigation and search bars for initial load from launch
+        // For smoother transition between launch screen and root controller
         navigationController?.setNavigationBarHidden(true, animated: false)
         searchBarTopConstraint.constant = -56
         cancelButtonTrailingConstraint.constant = -65
@@ -41,6 +44,8 @@ class MovieSearchListController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Animate launch label with scale transfermation
+        // Present navigation and search bar from the top with animation
         UIView.animate(withDuration: 0.3, delay: 0.5, options: .beginFromCurrentState, animations: {
             self.launchLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
             self.launchLabel.alpha = 0
@@ -55,10 +60,12 @@ class MovieSearchListController: UIViewController {
     }
     
     @IBAction func searchCancelButtonTapped(_ sender: Any) {
+        // IBAction to cancel search
         hideCancelAndReloadMovies()
     }
     
     func hideCancelAndReloadMovies() {
+        // Cancels search operations and reloads previously downloaded movie results
         cancelButtonTrailingConstraint.constant = -65
         UIView.animate(withDuration: 0.25, animations: {
             self.view.layoutIfNeeded()
@@ -70,6 +77,10 @@ class MovieSearchListController: UIViewController {
     }
 }
 
+
+// Extension to handel searchBar delegate
+// Change data type to .SearchQuery and reuse movieTableView to display successful search queries
+// Initiate movie search request to MOvieDataHandler and prepare movieTable for movie results
 extension MovieSearchListController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -116,6 +127,11 @@ extension MovieSearchListController: UISearchBarDelegate {
     }
 }
 
+
+// Extension to handel movieTableView Datasource
+// Datasource can change between .Movie and .SearchQuery
+// Loads MovieCell and LoadingCell for .Movie type and SearchCell for .SearchQuery type
+// Initiates nextPage data load via MovieDataHandler
 extension MovieSearchListController: UITableViewDataSource {
     // MARK: - Table view data source
     
@@ -169,6 +185,11 @@ extension MovieSearchListController: UITableViewDataSource {
     }
 }
 
+
+// Extension to handel movieTableView delegate
+// Dynamic height calculation using UITableViewAutomaticDimension for lengthy movie overview
+// Handle search query selection from previous successful search queries
+// Keeps footer height to hide empty cells in Plain type movieTableView
 extension MovieSearchListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

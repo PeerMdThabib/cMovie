@@ -6,6 +6,9 @@
 //  Copyright © 2018 Sasi. All rights reserved.
 //
 
+// Simple wrapper class to create and push alerts
+// Supports tuples / completion blocks to handle user interaction
+
 import UIKit
 
 class WarningManager: NSObject {

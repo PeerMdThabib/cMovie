@@ -9,6 +9,12 @@
 import Foundation
 import RealmSwift
 
+
+// Realm Object class for Movie model
+// Stores movie details from server response data
+// Formats release date string (2008-04-08) into easy readable format (08 April 2008)
+// Finds and sends back appropriate image width for movie poster download
+
 class Movie: Object {
     @objc dynamic var query: String = ""
     @objc dynamic var title: String = ""
