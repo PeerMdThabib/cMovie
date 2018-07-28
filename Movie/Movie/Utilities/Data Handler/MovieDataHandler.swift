@@ -10,18 +10,18 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-final class MovieDataHandler {
+class MovieDataHandler {
     
     var movieTitle: String?
     var currentPage:Int = 0
     var totalPages: Int = 0
     
     var searchQueryList: NSMutableArray
-    var movieList: NSMutableArray?
+    var movieList: NSMutableArray
     var isDownloading: Bool = false
+    let realm = try! Realm()
     
-    static let sharedInstance = MovieDataHandler()
-    private init() {
+    init() {
         movieList = NSMutableArray.init()
         searchQueryList = NSMutableArray.init()
         
@@ -49,9 +49,21 @@ final class MovieDataHandler {
         isDownloading = true
         let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: currentPage, successCallBack: { (message) in
             self.isDownloading = false
-            self.movieList?.addObjects(from: (message as! MovieMessage).resultList as! [Any])
+            self.clearCachedMovieData()
+            do {
+                for response in (message as! MovieMessage).resultList {
+                    let movie: Movie = Movie.createMovie(withDetails: response as! NSDictionary, searchQuery: self.movieTitle!)
+                    try self.realm.write {
+                        self.realm.add(movie)
+                    }
+                    self.movieList.add(movie)
+                }
+            } catch {
+                LogManager.logE(error: "Error while saving data in Realm \(error)")
+            }
+            
             self.totalPages = (message as! MovieMessage).totalPage
-            if (self.movieList!.count > 0) {
+            if (self.movieList.count > 0) {
                 self.saveSearchQuery()
             }
             completion()
@@ -64,7 +76,7 @@ final class MovieDataHandler {
     }
     
     func loadCachedMovieData() {
-        movieList?.addObjects(from: retrieveMovieData().value(forKey: "self") as! [Any])
+        movieList.addObjects(from: retrieveMovieData().value(forKey: "self") as! [Any])
         totalPages = 1
     }
     
@@ -72,19 +84,17 @@ final class MovieDataHandler {
         if (currentPage > 1) {
             return
         }
-        let realm = try! Realm()
         try! realm.write {
             realm.delete(retrieveMovieData())
         }
     }
     
     func retrieveMovieData() -> Results<Movie> {
-        let realm = try! Realm()
         return realm.objects(Movie.self).filter("query = '\(movieTitle!)'")
     }
     
     func reset() {
-        movieList?.removeAllObjects()
+        movieList.removeAllObjects()
         totalPages = 0
         currentPage = 0
         isDownloading = false
@@ -95,10 +105,7 @@ final class MovieDataHandler {
 extension MovieDataHandler {
     
     func getMoviesCount() -> Int {
-        if (movieList == nil) {
-            return 0
-        }
-        var count = movieList!.count
+        var count = movieList.count
         if (count > 0 && hasNextPage() == true) {
             count += 1
         }
@@ -110,8 +117,8 @@ extension MovieDataHandler {
     }
     
     func getMovie(atIndex index:Int) -> Movie? {
-        if (movieList != nil && movieList!.count > index) {
-            return movieList![index] as? Movie
+        if (movieList.count > index) {
+            return movieList[index] as? Movie
         }
         return nil
     }

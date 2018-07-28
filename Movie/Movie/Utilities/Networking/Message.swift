@@ -69,7 +69,7 @@ class Message: NSObject {
                 errorMessage = "Could not connect to the server. Please try again later."
             }
         }
-        WarningManager.sharedInstance.createAndPushWarning(message: errorMessage!, cancel: "Ok")
+        WarningManager.createAndPushWarning(message: errorMessage!, cancel: "Ok")
     }
     
     func getErrorMessage() -> String? {
