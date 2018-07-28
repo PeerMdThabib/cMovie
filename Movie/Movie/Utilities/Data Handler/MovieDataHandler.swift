@@ -21,6 +21,8 @@ class MovieDataHandler {
     var isDownloading: Bool = false
     let realm = try! Realm()
     
+    // MARK - Init method
+    
     init() {
         movieList = NSMutableArray.init()
         searchQueryList = NSMutableArray.init()
@@ -30,6 +32,9 @@ class MovieDataHandler {
             searchQueryList.addObjects(from: savedQueires!)
         }
     }
+    
+    
+    // MARK - Network calls for movie list download
     
     func downloadMovies(withTitle title:String, onCompletion completion:@escaping () -> Void) {
         reset()
@@ -74,6 +79,9 @@ class MovieDataHandler {
         }
         NetworkManager.sharedInstance.sendMesage(message: movieMessage)
     }
+    
+    
+    // MARK - Cached movie dta handler methods
     
     func loadCachedMovieData() {
         movieList.addObjects(from: retrieveMovieData().value(forKey: "self") as! [Any])
