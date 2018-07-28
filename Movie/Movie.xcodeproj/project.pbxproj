@@ -21,7 +21,6 @@
 		5EECD95E21070CCB005B4497 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EECD95C21070CCB005B4497 /* Main.storyboard */; };
 		5EECD96321070CCF005B4497 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EECD96221070CCF005B4497 /* Assets.xcassets */; };
 		5EECD96621070CCF005B4497 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EECD96421070CCF005B4497 /* LaunchScreen.storyboard */; };
-		5EECD97121070CCF005B4497 /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD97021070CCF005B4497 /* MovieTests.swift */; };
 		5EECD97C21070CCF005B4497 /* MovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD97B21070CCF005B4497 /* MovieUITests.swift */; };
 		5EECD98F2108700D005B4497 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; };
 		5EECD992210870D4005B4497 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EECD98E2108700D005B4497 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -67,6 +66,15 @@
 		5EEDEF20210B8C7F0010259F /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF1F210B8C7F0010259F /* AppStore.swift */; };
 		5EEDEF24210B944F0010259F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; };
 		5EEDEF25210B944F0010259F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; };
+		5EEDEF27210C6F3B0010259F /* MovieDataHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF26210C6F3B0010259F /* MovieDataHandlerTests.swift */; };
+		5EEDEF2F210C71BD0010259F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; };
+		5EEDEF30210C71BD0010259F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; };
+		5EEDEF31210C71C70010259F /* Crashlytics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF32210C71C70010259F /* Fabric.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF33210C72950010259F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; };
+		5EEDEF34210C72950010259F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; };
+		5EEDEF35210C729D0010259F /* Crashlytics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EEDEF36210C729D0010259F /* Fabric.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +117,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5EEDEF31210C71C70010259F /* Crashlytics.framework in CopyFiles */,
+				5EEDEF32210C71C70010259F /* Fabric.framework in CopyFiles */,
 				5EEDEF07210A4E790010259F /* RealmSwift.framework in CopyFiles */,
 				5EEDEF08210A4E790010259F /* Realm.framework in CopyFiles */,
 				5E742EA4210A3B5700A2D749 /* AlamofireImage.framework in CopyFiles */,
@@ -125,6 +135,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5EEDEF35210C729D0010259F /* Crashlytics.framework in CopyFiles */,
+				5EEDEF36210C729D0010259F /* Fabric.framework in CopyFiles */,
 				5E742EA7210A3B9500A2D749 /* AlamofireImage.framework in CopyFiles */,
 				5EECD9B02108A1D7005B4497 /* Nimble.framework in CopyFiles */,
 				5EECD9B12108A1D7005B4497 /* Quick.framework in CopyFiles */,
@@ -171,6 +183,7 @@
 		5EEDEF1F210B8C7F0010259F /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		5EEDEF22210B944E0010259F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		5EEDEF23210B944F0010259F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		5EEDEF26210C6F3B0010259F /* MovieDataHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataHandlerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +208,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEDEF2F210C71BD0010259F /* Crashlytics.framework in Frameworks */,
+				5EEDEF30210C71BD0010259F /* Fabric.framework in Frameworks */,
 				5EEDEF05210A4E610010259F /* Realm.framework in Frameworks */,
 				5EEDEF06210A4E610010259F /* RealmSwift.framework in Frameworks */,
 				5E742EA5210A3B7400A2D749 /* AlamofireImage.framework in Frameworks */,
@@ -209,6 +224,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEDEF33210C72950010259F /* Crashlytics.framework in Frameworks */,
+				5EEDEF34210C72950010259F /* Fabric.framework in Frameworks */,
 				5E742EA6210A3B8A00A2D749 /* AlamofireImage.framework in Frameworks */,
 				5EECD9A42108A0FC005B4497 /* Alamofire.framework in Frameworks */,
 				5EECD9A52108A0FC005B4497 /* Nimble.framework in Frameworks */,
@@ -313,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				5EECD97021070CCF005B4497 /* MovieTests.swift */,
+				5EEDEF26210C6F3B0010259F /* MovieDataHandlerTests.swift */,
 				5EECD97221070CCF005B4497 /* Info.plist */,
 			);
 			path = MovieTests;
@@ -606,7 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EECD97121070CCF005B4497 /* MovieTests.swift in Sources */,
+				5EEDEF27210C6F3B0010259F /* MovieDataHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +841,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MovieTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -848,6 +867,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MovieTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -872,6 +892,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MovieUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -896,6 +917,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MovieUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -22,7 +22,9 @@ class MovieSearchListController: UIViewController {
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var cancelButtonTrailingConstraint: NSLayoutConstraint!
     
+    let movieDataHandler = MovieDataHandler.init()
     var dataType: DataType = .None
+    var isFirstTimeMovieDisplay = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +74,8 @@ extension MovieSearchListController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         dataType = .SearchQuery
-        if (MovieDataHandler.sharedInstance.getSearchQueryCount() > 0) {
-            displayTableViewWithAnimation()
+        if (movieDataHandler.getSearchQueryCount() > 0) {
+            reloadTableViewWithAnimation()
         }
         cancelButtonTrailingConstraint.constant = 0
         UIView.animate(withDuration: 0.3) {
@@ -90,18 +92,20 @@ extension MovieSearchListController: UISearchBarDelegate {
     
     func startMovieSearch() {
         movieSearchBar.endEditing(true)
-        MovieDataHandler.sharedInstance.downloadMovies(withTitle: movieSearchBar.text!) {
-            self.displayTableViewWithAnimation()
+        movieDataHandler.downloadMovies(withTitle: movieSearchBar.text!) {
+            self.isFirstTimeMovieDisplay = true
+            self.reloadTableViewWithAnimation()
         }
         hideCancelAndReloadMovies()
     }
     
-    func displayTableViewWithAnimation() {
-        if (movieTableView.alpha == 0) {
+    func reloadTableViewWithAnimation() {
+        movieTableView.alpha = 1
+        if (isFirstTimeMovieDisplay == true) {
             // Fix for incorrect height calculation using 'UITableViewAutomaticDimension' on initial load.
             // Reloading table will fix it. Need to call this only on first time load
             // Issue ref : https://github.com/smileyborg/TableViewCellWithAutoLayoutiOS8/issues/10
-            movieTableView.alpha = 1
+            isFirstTimeMovieDisplay = false
             movieTableView.reloadData()
             movieTableView.setNeedsLayout()
             movieTableView.layoutIfNeeded()
@@ -122,10 +126,10 @@ extension MovieSearchListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataType {
         case .Movie:
-            return MovieDataHandler.sharedInstance.getMoviesCount()
+            return movieDataHandler.getMoviesCount()
             
         case .SearchQuery:
-            return MovieDataHandler.sharedInstance.getSearchQueryCount()
+            return movieDataHandler.getSearchQueryCount()
             
         default:
             return 0
@@ -138,20 +142,20 @@ extension MovieSearchListController: UITableViewDataSource {
         
         switch dataType {
         case .Movie:
-            let movie: Movie? = MovieDataHandler.sharedInstance.getMovie(atIndex: indexPath.row)
+            let movie: Movie? = movieDataHandler.getMovie(atIndex: indexPath.row)
             if (movie != nil) {
                 let movieCell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
                 movieCell.loadData(forMovie: movie!)
                 cell = movieCell
             } else {
                 cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
-                MovieDataHandler.sharedInstance.downloadMoviesFromNextPage {
+                movieDataHandler.downloadMoviesFromNextPage {
                     self.movieTableView.reloadData()
                 }
             }
             
         case .SearchQuery:
-            let searchQuery = MovieDataHandler.sharedInstance.getSearchQuery(atIndex: indexPath.row)
+            let searchQuery = movieDataHandler.getSearchQuery(atIndex: indexPath.row)
             let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchQueryCell", for: indexPath) as! SearchQueryCell
             searchCell.searchTitleLabel.text = searchQuery
             cell = searchCell
@@ -174,7 +178,7 @@ extension MovieSearchListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch dataType {
         case .SearchQuery:
-            movieSearchBar.text = MovieDataHandler.sharedInstance.getSearchQuery(atIndex: indexPath.row)
+            movieSearchBar.text = movieDataHandler.getSearchQuery(atIndex: indexPath.row)
             startMovieSearch()
             
         default:
