@@ -97,11 +97,17 @@ extension MovieSearchListController: UISearchBarDelegate {
     }
     
     func displayTableViewWithAnimation() {
-        movieTableView.reloadSections(IndexSet(integer: 0), with: .fade)
         if (movieTableView.alpha == 0) {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.movieTableView.alpha = 1
-            })
+            // Fix for incorrect height calculation using 'UITableViewAutomaticDimension' on initial load.
+            // Reloading table will fix it. Need to call this only on first time load
+            // Issue ref : https://github.com/smileyborg/TableViewCellWithAutoLayoutiOS8/issues/10
+            movieTableView.alpha = 1
+            movieTableView.reloadData()
+            movieTableView.setNeedsLayout()
+            movieTableView.layoutIfNeeded()
+            movieTableView.reloadData()
+        } else {
+            movieTableView.reloadSections(IndexSet(integer: 0), with: .fade)
         }
     }
 }
