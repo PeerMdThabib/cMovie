@@ -36,9 +36,9 @@ class Movie: Object {
         }
         
         let formatter = DateFormatter.init()
-        formatter.dateFormat = "yyyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         let formattedDate = formatter.date(from: releaseDate)
-        formatter.dateFormat = "dd MMM yyyy"
+        formatter.dateFormat = "dd MMMM yyyy"
         return formatter.string(from: formattedDate!)
     }
     
