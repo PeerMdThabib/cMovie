@@ -76,6 +76,7 @@
 		5EEDEF35210C729D0010259F /* Crashlytics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF23210B944F0010259F /* Crashlytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EEDEF36210C729D0010259F /* Fabric.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5EEDEF22210B944E0010259F /* Fabric.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EEDEF3A210CACF10010259F /* MovieModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF39210CACF10010259F /* MovieModelTests.swift */; };
+		5EEDEF3C210CB5F80010259F /* MovieSearchListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDEF3B210CB5F80010259F /* MovieSearchListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		5EEDEF23210B944F0010259F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5EEDEF26210C6F3B0010259F /* MovieDataHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataHandlerTests.swift; sourceTree = "<group>"; };
 		5EEDEF39210CACF10010259F /* MovieModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModelTests.swift; sourceTree = "<group>"; };
+		5EEDEF3B210CB5F80010259F /* MovieSearchListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 			children = (
 				5EEDEF39210CACF10010259F /* MovieModelTests.swift */,
 				5EEDEF26210C6F3B0010259F /* MovieDataHandlerTests.swift */,
+				5EEDEF3B210CB5F80010259F /* MovieSearchListTests.swift */,
 				5EECD97221070CCF005B4497 /* Info.plist */,
 			);
 			path = MovieTests;
@@ -626,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EEDEF3A210CACF10010259F /* MovieModelTests.swift in Sources */,
+				5EEDEF3C210CB5F80010259F /* MovieSearchListTests.swift in Sources */,
 				5EEDEF27210C6F3B0010259F /* MovieDataHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
