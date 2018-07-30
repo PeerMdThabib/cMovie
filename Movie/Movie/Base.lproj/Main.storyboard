@@ -117,14 +117,24 @@
                                                         <constraint firstAttribute="height" constant="20" id="lrJ-HU-WAM"/>
                                                     </constraints>
                                                 </activityIndicatorView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0A-aY-ihy">
+                                                    <rect key="frame" x="147.5" y="5" width="79" height="30"/>
+                                                    <state key="normal" title="Tap to retry"/>
+                                                    <connections>
+                                                        <action selector="retryButtonTapped:" destination="at4-Ny-4dh" eventType="touchUpInside" id="MHx-Q9-sBG"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="bFr-bO-niN" firstAttribute="centerY" secondItem="at4-Ny-4dh" secondAttribute="centerY" id="UNM-iA-6f7"/>
+                                            <constraint firstItem="e0A-aY-ihy" firstAttribute="centerX" secondItem="at4-Ny-4dh" secondAttribute="centerX" id="bNR-Fi-NIv"/>
+                                            <constraint firstItem="e0A-aY-ihy" firstAttribute="centerY" secondItem="at4-Ny-4dh" secondAttribute="centerY" id="es9-Rz-lRf"/>
                                             <constraint firstItem="bFr-bO-niN" firstAttribute="centerX" secondItem="at4-Ny-4dh" secondAttribute="centerX" id="rGz-eW-kbJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="loadingIndicator" destination="bFr-bO-niN" id="eq8-ak-jMj"/>
+                                            <outlet property="retryButton" destination="e0A-aY-ihy" id="XUA-QV-r1U"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchQueryCell" rowHeight="44" id="IFS-dS-aLg" customClass="SearchQueryCell" customModule="Movie" customModuleProvider="target">

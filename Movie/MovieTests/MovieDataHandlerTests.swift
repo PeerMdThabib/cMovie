@@ -45,7 +45,7 @@ class MovieDataHandlerTests: QuickSpec {
             }
             
             context("On Search Start") {
-                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {
+                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {_ in 
                 })
                 it("should have 0 search queries") {
                     expect(movieDataHandler.getSearchQueryCount()).to(equal(0))
@@ -65,7 +65,7 @@ class MovieDataHandlerTests: QuickSpec {
             }
             
             context("On Search Completion") {
-                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {
+                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {_ in 
                     
                     it("should have recent query at first in search query list") {
                         expect(movieDataHandler.getSearchQuery(atIndex: 0)).to(equal("Avengers"))
@@ -96,7 +96,7 @@ class MovieDataHandlerTests: QuickSpec {
             context("Successful search query storage") {
                 savedQueires = ["Batman", "Avengers", "Spider Man", "Inception", "Mission Impossible", "Fast and Furious", "Harry Potter", "Iron Man", "Wolverine", "Sherlock Holmes"]
                 movieDataHandler.searchQueryList = NSMutableArray.init(array: savedQueires!)
-                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {
+                movieDataHandler.downloadMovies(withTitle: "Avengers", onCompletion: {_ in 
                     it("should move 'Avengers' to first in QUery list") {
                         expect(movieDataHandler.getSearchQuery(atIndex: 0)).to(equal("Avengers"))
                     }
@@ -104,7 +104,7 @@ class MovieDataHandlerTests: QuickSpec {
                         expect(movieDataHandler.getSearchQueryCount()).to(equal(10))
                     }
                 })
-                movieDataHandler.downloadMovies(withTitle: "Incredibles", onCompletion: {
+                movieDataHandler.downloadMovies(withTitle: "Incredibles", onCompletion: {_ in 
                     it("should remove last query from the list") {
                         expect(movieDataHandler.searchQueryList.contains("Sherlock Holmes")).to(equal(false))
                     }
