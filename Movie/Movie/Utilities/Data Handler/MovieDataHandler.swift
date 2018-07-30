@@ -73,7 +73,9 @@ class MovieDataHandler {
             }
             completion()
         }) { (message) in
-            self.loadCachedMovieData()
+            if (self.movieList.count == 0) {
+                self.loadCachedMovieData()
+            }
             self.isDownloading = false
             completion()
         }
