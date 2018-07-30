@@ -29,7 +29,8 @@ class Message: NSObject {
     var failureCallBack: ((Message) -> Void)?
     
     func checkAcceptance() -> Bool {
-        if (responseData!.error != nil) {
+        if (responseData == nil ||
+            responseData!.error != nil) {
             return false
         }
         

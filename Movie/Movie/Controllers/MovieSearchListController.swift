@@ -103,7 +103,7 @@ extension MovieSearchListController: UISearchBarDelegate {
     
     func startMovieSearch() {
         movieSearchBar.endEditing(true)
-        movieDataHandler.downloadMovies(withTitle: movieSearchBar.text!) {
+        movieDataHandler.downloadMovies(withTitle: movieSearchBar.text!) {_ in
             self.isFirstTimeMovieDisplay = true
             self.reloadTableViewWithAnimation()
         }
@@ -164,10 +164,17 @@ extension MovieSearchListController: UITableViewDataSource {
                 movieCell.loadData(forMovie: movie!)
                 cell = movieCell
             } else {
-                cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
-                movieDataHandler.downloadMoviesFromNextPage {
-                    self.movieTableView.reloadData()
+                let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+                loadingCell.startLoading {
+                    self.movieDataHandler.downloadMoviesFromNextPage {isSuccess in
+                        if (isSuccess) {
+                            self.movieTableView.reloadData()
+                        } else {
+                            loadingCell.displayRetryOption()
+                        }
+                    }
                 }
+                cell = loadingCell
             }
             
         case .SearchQuery:

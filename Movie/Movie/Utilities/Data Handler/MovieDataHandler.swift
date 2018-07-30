@@ -36,19 +36,19 @@ class MovieDataHandler {
     
     // MARK - Network calls for movie list download
     
-    func downloadMovies(withTitle title:String, onCompletion completion:@escaping () -> Void) {
+    func downloadMovies(withTitle title:String, onCompletion completion:@escaping (_ isSuccess:Bool) -> Void) {
         reset()
         downladMovies(withTitle: title, onPageNumber: 1, onCompletion: completion)
     }
     
-    func downloadMoviesFromNextPage(onCompletion completion:@escaping () -> Void) {
+    func downloadMoviesFromNextPage(onCompletion completion:@escaping (_ isSuccess:Bool) -> Void) {
         if (isDownloading == true) {
             return
         }
         downladMovies(withTitle: movieTitle!, onPageNumber: currentPage+1, onCompletion: completion)
     }
     
-    func downladMovies(withTitle title:String, onPageNumber page:Int, onCompletion completion:@escaping () -> Void) {
+    func downladMovies(withTitle title:String, onPageNumber page:Int, onCompletion completion:@escaping (_ isSuccess:Bool) -> Void) {
         isDownloading = true
         let movieMessage = MovieMessage.getMovieMessage(withTitle: title, pageNumber: page, successCallBack: { (message) in
             self.movieTitle = title
@@ -71,13 +71,13 @@ class MovieDataHandler {
             if (self.movieList.count > 0) {
                 self.saveSearchQuery()
             }
-            completion()
+            completion(true)
         }) { (message) in
             if (self.movieList.count == 0) {
                 self.loadCachedMovieData()
             }
             self.isDownloading = false
-            completion()
+            completion(false)
         }
         NetworkManager.sharedInstance.sendMesage(message: movieMessage)
     }
