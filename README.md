@@ -24,7 +24,8 @@ Make sure you are in /Movie project directory and run the following command in t
 carthage update --platform iOS
 ```
 All packages should be installed and ready for build. In case if you get the following error 
-[Realm_issue](https://github.com/realm/realm-cocoa/issues/5709)
+
+Reference to [Realm_issue](https://github.com/realm/realm-cocoa/issues/5709)
 
 
 Then re-run carthage update with --no-use-binaries option as follows,
