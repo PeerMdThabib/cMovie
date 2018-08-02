@@ -39,3 +39,5 @@ carthage update --no-use-binaries --platform iOS
 ```
 
 Now you should be all set to build and run the application without any error
+
+Please make sure to run the tests first to avoid any issues releated to XCTest and run the application.
