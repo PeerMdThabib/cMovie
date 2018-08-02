@@ -3,8 +3,8 @@
 ## Installation
 
 ### Carthage
-After cloning this repository please make sure to run carthage update. To install
-the following farmeworks:
+After cloning this repository please make sure to run carthage update to install
+the following frameworks:
 
 #### Networking, 
 - Alamofire 
@@ -30,10 +30,12 @@ Reference to [Realm_issue](https://github.com/realm/realm-cocoa/issues/5709)
 ![cMovie](https://github.com/Sa74/cMovie/blob/master/realm.jpeg)
 
 
+
 Then re-run carthage update with --no-use-binaries option as follows,
 
 
 ```
 carthage update --no-use-binaries --platform iOS
 ```
+
 Now you should be all set to build and run the application without any error
