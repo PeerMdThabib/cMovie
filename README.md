@@ -27,6 +27,8 @@ All packages should be installed and ready for build. In case if you get the fol
 
 Reference to [Realm_issue](https://github.com/realm/realm-cocoa/issues/5709)
 
+![cMovie](https://github.com/Sa74/cMovie/blob/master/realm.jpeg)
+
 
 Then re-run carthage update with --no-use-binaries option as follows,
 
