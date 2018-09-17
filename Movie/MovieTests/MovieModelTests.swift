@@ -44,8 +44,8 @@ class MovieModelTests: QuickSpec {
                     expect(movie.getFormattedReleaseDateString()).to(equal("01 January 2018"))
                     movie.releaseDate = "2015-09-21"
                     expect(movie.getFormattedReleaseDateString()).to(equal("21 September 2015"))
-                    movie.releaseDate = "2010-04-17"
-                    expect(movie.getFormattedReleaseDateString()).to(equal("17 April 2010"))
+                    movie.releaseDate = "2008-07-16"
+                    expect(movie.getFormattedReleaseDateString()).to(equal("16 July 2008"))
                 }
             }
             
